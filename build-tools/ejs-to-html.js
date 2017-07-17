@@ -6,7 +6,7 @@ import {
     siteTitle,
     siteUrl,
     description
-} from './config.js'
+} from '../config.js'
 import transformFiles from './transform-files.js'
 import ejs from 'ejs'
 require('dotenv').config()

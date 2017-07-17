@@ -1,6 +1,6 @@
 import fs from 'fs'
 import { resolve } from 'path'
-import { Dir } from './config.js'
+import { Dir } from '../config.js'
 import transformFiles from './transform-files.js'
 import { minify } from 'html-minifier'
 

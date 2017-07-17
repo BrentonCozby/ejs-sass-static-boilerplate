@@ -1,62 +1,64 @@
 {
-  "name": "ejs-sass-static-boilerplate",
-  "version": "1.0.0",
-  "description": "Boilerplate for a Static website using EJS and SASS",
-  "main": "index.js",
-  "scripts": {
-    "start": "serve dist",
-    "build-ejs": "babel-node ejs-to-html.js",
-    "watch-ejs": "babel-node ejs-to-html.js --watch",
-    "minify-html": "babel-node minify-html.js",
-    "build-js": "webpack -p",
-    "watch-js": "webpack -w",
-    "sass": "node-sass src/css -o dist/css",
-    "sass:watch": "node-sass -w src/css -o dist/css",
-    "autoprefixer": "postcss dist/css/**/*.css --use autoprefixer -r",
-    "build-css": "npm run sass && npm run autoprefixer",
-    "minify-css": "npm run build-css && babel-node minify-css.js",
-    "copy-to-dist": "babel-node copy-to-dist.js",
-    "prod": "rimraf dist && npm run build-ejs && npm run minify-html && npm run build-js && npm run minify-css && npm run copy-to-dist"
-  },
-  "author": "Brenton Cozby",
-  "license": "MIT",
-  "devDependencies": {
-    "autoprefixer": "^7.1.2",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "clean-css": "^4.1.7",
-    "ejs": "^2.5.6",
-    "favicons": "^4.8.6",
-    "html-minifier": "^3.5.2",
-    "node-sass": "^4.5.3",
-    "postcss-cli": "^4.1.0",
-    "rimraf": "^2.6.1",
-    "serve": "^6.0.2",
-    "webpack": "^3.3.0"
-  },
-  "dependencies": {
-    "dotenv": "^4.0.0",
-    "escape-html": "^1.0.3",
-    "jquery": "^3.2.1",
-    "lodash.throttle": "^4.1.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BrentonCozby/ejs-sass-static-boilerplate.git"
-  },
-  "keywords": [
-    "EJS",
-    "SASS",
-    "Webpack",
-    "Boilerplate",
-    "Static",
-    "NodeJS"
-  ],
-  "bugs": {
-    "url": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate/issues"
-  },
-  "homepage": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate#readme"
+    "name": "ejs-sass-static-boilerplate",
+    "version": "1.0.0",
+    "description": "Boilerplate for a Static website using EJS and SASS",
+    "main": "index.js",
+    "scripts": {
+        "start": "serve dist",
+        "build:html": "babel-node build-tools/ejs-to-html.js",
+        "build:js": "webpack",
+        "build:css": "npm run sass && npm run autoprefixer",
+        "watch:html": "babel-node build-tools/ejs-to-html.js --watch",
+        "watch:js": "webpack -w",
+        "watch:css": "node-sass -w src/css -o dist/css",
+        "minify:html": "npm run build:html && babel-node build-tools/minify-html.js",
+        "minify:js": "webpack -p",
+        "minify:css": "npm run build:css && babel-node build-tools/minify-css.js",
+        "sass": "node-sass src/css -o dist/css",
+        "autoprefixer": "postcss dist/css/**/*.css --use autoprefixer -r",
+        "copy-to-dist": "babel-node build-tools/copy-to-dist.js",
+        "favicons": "babel-node build-tools/favicons-generator.js",
+        "prod": "rimraf dist && npm run favicons && npm run minify:html && npm run minify:js && npm run minify:css && npm run copy-to-dist"
+    },
+    "author": "Brenton Cozby",
+    "license": "MIT",
+    "devDependencies": {
+        "autoprefixer": "^7.1.2",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-loader": "^7.1.1",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-stage-0": "^6.24.1",
+        "clean-css": "^4.1.7",
+        "ejs": "^2.5.6",
+        "favicons": "^4.8.6",
+        "html-minifier": "^3.5.2",
+        "node-sass": "^4.5.3",
+        "postcss-cli": "^4.1.0",
+        "rimraf": "^2.6.1",
+        "serve": "^6.0.2",
+        "webpack": "^3.3.0"
+    },
+    "dependencies": {
+        "dotenv": "^4.0.0",
+        "escape-html": "^1.0.3",
+        "jquery": "^3.2.1",
+        "lodash.throttle": "^4.1.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BrentonCozby/ejs-sass-static-boilerplate.git"
+    },
+    "keywords": [
+        "EJS",
+        "SASS",
+        "Webpack",
+        "Boilerplate",
+        "Static",
+        "NodeJS"
+    ],
+    "bugs": {
+        "url": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate/issues"
+    },
+    "homepage": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate#readme"
 }
