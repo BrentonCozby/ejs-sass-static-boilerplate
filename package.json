@@ -1,43 +1,59 @@
 {
-    "name": "static-ejs-website",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "serve dist",
-        "build-ejs": "babel-node ejs-to-html.js",
-        "watch-ejs": "babel-node ejs-to-html.js --watch",
-        "build-js": "webpack -p",
-        "watch-js": "webpack -w",
-        "sass": "node-sass src/css -o dist/css",
-        "sass:watch": "node-sass -w src/css -o dist/css",
-        "autoprefixer": "postcss dist/css/**/*.css --use autoprefixer -r",
-        "build-css": "npm run sass && npm run autoprefixer",
-        "minify-css": "npm run build-css && babel-node minify-css.js",
-        "copy-to-dist": "babel-node copy-to-dist.js",
-        "prod": "npm run build-ejs && npm run build-js && npm run minify-css && npm run copy-to-dist"
-    },
-    "author": "",
-    "license": "MIT",
-    "devDependencies": {
-        "autoprefixer": "^7.1.2",
-        "babel-cli": "^6.24.1",
-        "babel-core": "^6.25.0",
-        "babel-loader": "^7.1.1",
-        "babel-preset-env": "^1.6.0",
-        "babel-preset-stage-0": "^6.24.1",
-        "clean-css": "^4.1.7",
-        "ejs": "^2.5.6",
-        "favicons": "^4.8.6",
-        "node-sass": "^4.5.3",
-        "postcss-cli": "^4.1.0",
-        "serve": "^6.0.2",
-        "webpack": "^3.3.0"
-    },
-    "dependencies": {
-        "dotenv": "^4.0.0",
-        "escape-html": "^1.0.3",
-        "jquery": "^3.2.1",
-        "lodash.throttle": "^4.1.1"
-    }
+  "name": "ejs-sass-static-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for a Static website using EJS and SASS",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve dist",
+    "build-ejs": "babel-node ejs-to-html.js",
+    "watch-ejs": "babel-node ejs-to-html.js --watch",
+    "build-js": "webpack -p",
+    "watch-js": "webpack -w",
+    "sass": "node-sass src/css -o dist/css",
+    "sass:watch": "node-sass -w src/css -o dist/css",
+    "autoprefixer": "postcss dist/css/**/*.css --use autoprefixer -r",
+    "build-css": "npm run sass && npm run autoprefixer",
+    "minify-css": "npm run build-css && babel-node minify-css.js",
+    "copy-to-dist": "babel-node copy-to-dist.js",
+    "prod": "npm run build-ejs && npm run build-js && npm run minify-css && npm run copy-to-dist"
+  },
+  "author": "Brenton Cozby",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-css": "^4.1.7",
+    "ejs": "^2.5.6",
+    "favicons": "^4.8.6",
+    "node-sass": "^4.5.3",
+    "postcss-cli": "^4.1.0",
+    "serve": "^6.0.2",
+    "webpack": "^3.3.0"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "escape-html": "^1.0.3",
+    "jquery": "^3.2.1",
+    "lodash.throttle": "^4.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrentonCozby/ejs-sass-static-boilerplate.git"
+  },
+  "keywords": [
+    "EJS",
+    "SASS",
+    "Webpack",
+    "Boilerplate",
+    "Static",
+    "NodeJS"
+  ],
+  "bugs": {
+    "url": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate/issues"
+  },
+  "homepage": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate#readme"
 }

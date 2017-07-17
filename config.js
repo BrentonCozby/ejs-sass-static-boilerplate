@@ -4,7 +4,7 @@ export const rootAbsPath = __dirname
 export const rootRelPath = ''
 
 export const siteTitle = 'Static Boilerplate EJS-SASS'
-export const description = 'Boilerplate for a static site that uses Sass and EJS'
+export const description = 'Boilerplate for a Static website using EJS and SASS'
 export const siteUrl = 'example.com'
 
 const Dir = {
