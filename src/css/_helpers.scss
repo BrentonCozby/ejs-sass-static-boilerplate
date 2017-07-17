@@ -1,0 +1,153 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 0;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .5);
+    opacity: 0;
+    z-index: -100;
+
+    &.revealed {
+        opacity: 1;
+        z-index: 100;
+        min-height: 100vh;
+    }
+}
+
+.hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    @media all and (min-width: 375px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    @media all and (min-width: 768px) {
+        width: 750px;
+    }
+    @media all and (min-width: 992px) {
+        width: 970px;
+    }
+    @media all and (min-width: 1200px) {
+        width: 1170px;
+    }
+}
+
+@mixin appear($offset, $speed) {
+    opacity: 0;
+    transform: translateY($offset);
+    transition-timing-function: ease-out;
+
+    &.scroll-visible {
+        transition: all $speed;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.appear {
+    @include appear(30px, 700ms);
+
+    @media all and (min-width: 992px) {
+        &.scroll-visible.delay-200 {
+            transition-delay: 200ms;
+        }
+
+        &.scroll-visible.delay-300 {
+            transition-delay: 300ms;
+        }
+
+        &.scroll-visible.delay-400 {
+            transition-delay: 400ms;
+        }
+
+        &.scroll-visible.delay-600 {
+            transition-delay: 600ms;
+        }
+
+        &.scroll-visible.delay-800 {
+            transition-delay: 800ms;
+        }
+
+        &.scroll-visible.delay-900 {
+            transition-delay: 900ms;
+        }
+
+        &.scroll-visible.delay-1200 {
+            transition-delay: 1200ms;
+        }
+    }
+}
+
+@keyframes slide-up-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@mixin slide-up-fade-in($delay) {
+    opacity: 0;
+    animation-name: slide-up-fade-in;
+    animation-duration: 1000ms;
+    animation-delay: $delay;
+    animation-fill-mode: forwards;
+    transition: all 200ms;
+}
+
+.split-2 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .split-box {
+
+        @media all and (min-width: 768px) {
+            width: 50%;
+        }
+    }
+}
+
+.split-3 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .split-box {
+
+        @media all and (min-width: 768px) {
+            width: 33%;
+        }
+    }
+}
+
+.split-4 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .split-box {
+
+        @media all and (min-width: 768px) {
+            width: 25%;
+        }
+    }
+}

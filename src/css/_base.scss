@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans|Pathway+Gothic+One');
+
+$header-font: 'Pathway Gothic One', sans-serif;
+$main-font: 'Droid Sans', sans-serif;
+
+* {
+    box-sizing: border-box;
+    position: relative;
+    transition: all 200ms;
+    font-family: $main-font;
+    font-weight: 300;
+}
+
+html,
+body {
+    min-height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
