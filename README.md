@@ -20,6 +20,7 @@ Boilerplate for a Static website using EJS and SASS.
 - Hashes css and js filenames in production for cache busting
 - Minification for CSS, JS, and HTML files
 - Autoprefix css
+- Separates vendor code from your code
 
 ## Other Features
 - Generate favicons for all devices and media
