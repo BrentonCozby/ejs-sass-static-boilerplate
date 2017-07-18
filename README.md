@@ -24,3 +24,5 @@ Boilerplate for a Static website using EJS and SASS.
 ## Other Features
 - Generate favicons for all devices and media
 - Use the latest JavaScript (babel-preset-stage-0)
+- A Polyfills.js file that only loads if the client doesn't have
+- certain features
