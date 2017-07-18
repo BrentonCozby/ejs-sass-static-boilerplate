@@ -20,7 +20,8 @@
         "favicons": "babel-node build-tools/favicons-generator.js",
         "hash-filenames": "babel-node build-tools/hash-filenames.js",
         "setup-for-dev": "rimraf filename-map.json && rimraf dist && npm run copy-to-dist",
-        "prod": "rimraf dist && npm run minify:js && npm run minify:css && npm run copy-to-dist && npm run hash-filenames && npm run minify:html"
+        "build-sw": "babel-node build-tools/build-service-worker.js",
+        "prod": "rimraf dist && npm run minify:js && npm run minify:css && npm run copy-to-dist && npm run build-sw && npm run hash-filenames && npm run minify:html"
     },
     "author": "Brenton Cozby",
     "license": "MIT",
@@ -39,6 +40,7 @@
         "postcss-cli": "^4.1.0",
         "rimraf": "^2.6.1",
         "serve": "^6.0.2",
+        "sw-precache": "^5.2.0",
         "webpack": "^3.3.0"
     },
     "dependencies": {
