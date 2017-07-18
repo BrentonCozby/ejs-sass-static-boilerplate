@@ -21,6 +21,6 @@ Boilerplate for a Static website using EJS and SASS.
 - Minification for CSS, JS, and HTML files
 - Autoprefix css
 
-### Other Features
+## Other Features
 - Generate favicons for all devices and media
 - Use the latest JavaScript (babel-preset-stage-0)
