@@ -1,7 +1,7 @@
 # ejs-sass-static-boilerplate
 Boilerplate for a Static website using EJS and SASS.
 
-### DEVELOPMENT
+## DEVELOPMENT
 **Usage:** Run the following scripts in 4 different terminal tabs:
 1. ```npm run setup-for-dev``` and then ```npm start```
 2. ```npm run watch:html```
@@ -12,7 +12,7 @@ Boilerplate for a Static website using EJS and SASS.
 - Watch css, js, and html files and recompile on change
 
 
-### PRODUCTION
+## PRODUCTION
 
 **Usage:** ```npm run prod```
 
