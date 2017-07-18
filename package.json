@@ -19,9 +19,10 @@
         "copy-to-dist": "babel-node build-tools/copy-to-dist.js",
         "favicons": "babel-node build-tools/favicons-generator.js",
         "hash-filenames": "babel-node build-tools/hash-filenames.js",
-        "setup-for-dev": "rimraf filename-map.json && rimraf dist && npm run copy-to-dist",
-        "build-sw": "babel-node build-tools/build-service-worker.js",
-        "prod": "rimraf dist && npm run minify:js && npm run minify:css && npm run copy-to-dist && npm run build-sw && npm run hash-filenames && npm run minify:html"
+        "build:sw": "babel-node build-tools/build-service-worker.js",
+        "rmprod": "rimraf filename-map.json && rimraf dist",
+        "setup-for-dev": "npm run rmprod && npm run copy-to-dist && npm run build:js && npm run build:css && npm run build:html",
+        "prod": "rimraf dist && npm run minify:js && npm run minify:css && npm run copy-to-dist && npm run build:sw && npm run hash-filenames && npm run minify:html"
     },
     "author": "Brenton Cozby",
     "license": "MIT",

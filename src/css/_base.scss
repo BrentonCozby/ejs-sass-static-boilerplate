@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Droid+Sans|Pathway+Gothic+One');
-
-$header-font: 'Pathway Gothic One', sans-serif;
-$main-font: 'Droid Sans', sans-serif;
+$main-font: "Helvetica Neue", "Calibri Light", "Roboto", sans-serif;
 
 * {
     box-sizing: border-box;
     position: relative;
     transition: all 200ms;
     font-family: $main-font;
-    font-weight: 300;
+    color: #212121;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
 }
 
 html,
@@ -19,10 +19,4 @@ body {
 
 body {
     margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: $header-font;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
