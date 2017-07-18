@@ -5,9 +5,12 @@ require('dotenv').config()
 import { Dir, rootRelPath } from './config.js'
 
 export default {
-    entry: `.${sep}` + join('src', 'js', 'index.js'),
+    entry: {
+        bundle: [`.${sep}` + join('src', 'js', 'index.js')],
+        polyfills: [`.${sep}` + join('src', 'js', 'polyfills.js')]
+    },
     output: {
-        filename: `.${sep}` + join('dist', 'js', 'bundle.js'),
+        filename: `.${sep}` + join('dist', 'js', '[name].js'),
         publicPath: rootRelPath + sep
     },
     module: {

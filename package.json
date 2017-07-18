@@ -42,10 +42,12 @@
         "webpack": "^3.3.0"
     },
     "dependencies": {
+        "babel-polyfill": "^6.23.0",
         "dotenv": "^4.0.0",
         "escape-html": "^1.0.3",
         "jquery": "^3.2.1",
-        "lodash.throttle": "^4.1.1"
+        "lodash.throttle": "^4.1.1",
+        "whatwg-fetch": "^2.0.3"
     },
     "repository": {
         "type": "git",
