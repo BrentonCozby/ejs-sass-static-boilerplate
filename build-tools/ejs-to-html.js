@@ -6,7 +6,9 @@ import {
     rootAbsPath,
     siteTitle,
     siteUrl,
-    description
+    description,
+    developerName,
+    developerURL
 } from '../config.js'
 import transformFiles from './transform-files.js'
 import ejs from 'ejs'
@@ -29,6 +31,8 @@ function transformer(filename, inputDir, outputDir) {
             siteTitle,
             siteUrl,
             description,
+            developerName,
+            developerURL,
             filenameMap
         })
     const filenamePlain = filename.split('.ejs')[0]
