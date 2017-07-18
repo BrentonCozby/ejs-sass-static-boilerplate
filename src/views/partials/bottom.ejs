@@ -1,1 +1,5 @@
+<% if(filenameMap) { %>
+<script src="<%= rootRelPath %>/js/<%= filenameMap['bundle.js'] %>"></script>
+<% } else { %>
 <script src="<%= rootRelPath %>/js/bundle.js"></script>
+<% } %>

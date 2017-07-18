@@ -12,40 +12,37 @@ function createDir(dirPath) {
 }
 
 function findFiles(rootDir, directory, options, transformer) {
-    fs.readdir(directory, (err, results) => {
-        if(err) return console.log(err)
+    const results = fs.readdirSync(directory)
 
-        results.forEach(item => {
-            const itemPath = resolve(directory, item)
-            fs.stat(itemPath, (err, stats) => {
-                if(err) return console.log(err)
+    results.forEach(item => {
+        const itemPath = resolve(directory, item)
+        const stats = fs.statSync(itemPath)
 
-                if(stats.isDirectory()) {
-                    findFiles(rootDir, itemPath, options, transformer)
+        if(stats.isDirectory()) {
+            findFiles(rootDir, itemPath, options, transformer)
+        }
+        else {
+            let outputDir = directory
+            if(options.dest) {
+                if(options.flatten) {
+                    outputDir = options.dest
                 }
                 else {
-                    let outputDir = directory
-                    if(options.dest) {
-                        if(options.flatten) {
-                            outputDir = options.dest
-                        }
-                        else {
-                            // need to slice(1) to remove the / from front of path
-                            // so that resolve will work properly (can't resolve
-                            // two absolute paths)
-                            const path = directory.replace(rootDir, '').slice(1)
-                            outputDir = resolve(options.dest, path)
-                        }
-                    }
-
-                    // need create each dir in the outputDir because you can't
-                    // write to it if it doesn't exist
-                    createDir(outputDir)
-
-                    transformer(item, directory, outputDir)
+                    // need to slice(1) to remove the / from front of path
+                    // so that resolve will work properly (can't resolve
+                    // two absolute paths)
+                    const path = directory.replace(rootDir, '').slice(1)
+                    outputDir = resolve(options.dest, path)
                 }
-            })
-        })
+            }
+
+            // need create each dir in the outputDir because you can't
+            // write to it if it doesn't exist
+            createDir(outputDir)
+
+                 // filename, inputDir, outputDir
+            transformer(item, directory, outputDir)
+        }
     })
 }
 

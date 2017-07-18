@@ -3,6 +3,7 @@ import fs from 'fs'
 import {
     Dir,
     rootRelPath,
+    rootAbsPath,
     siteTitle,
     siteUrl,
     description
@@ -11,17 +12,24 @@ import transformFiles from './transform-files.js'
 import ejs from 'ejs'
 require('dotenv').config()
 
+let filenameMap = null
+if(fs.existsSync(resolve(rootAbsPath, 'filename-map.json'))) {
+    const fileContents = fs.readFileSync(resolve(rootAbsPath, 'filename-map.json'), 'utf-8')
+    filenameMap = JSON.parse(fileContents)
+}
+
 function transformer(filename, inputDir, outputDir) {
     const filePath = resolve(inputDir, filename)
     const ejsTemplate = fs.readFileSync(filePath, 'utf-8')
     const html = ejs.render(ejsTemplate, {
+            delimiter: '%',
             filename: filePath,
             partials: Dir.partials,
             rootRelPath,
             siteTitle,
             siteUrl,
             description,
-            delimiter: '%'
+            filenameMap
         })
     const filenamePlain = filename.split('.ejs')[0]
     const newFilePath = resolve(outputDir, `${filenamePlain}.html`)
