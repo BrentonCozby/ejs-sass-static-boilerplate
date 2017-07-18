@@ -1,6 +1,3 @@
-import jquery from 'jquery'
-import throttle from 'lodash.throttle'
-
-window.$ = jquery
-window.jQuery = jquery
-window.throttle = throttle
+window.$ = require('jquery')
+window.throttle = require('lodash.throttle')
+window.escape = require('escape-html')

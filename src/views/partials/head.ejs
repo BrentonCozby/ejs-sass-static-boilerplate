@@ -38,24 +38,4 @@
     <link rel="preload" href="<%= rootRelPath %>/js/bundle.js" as="script">
     <link rel="prefetch" href="<%= rootRelPath %>/js/bundle.js">
 <% } %>
-    <script>
-        var newBrowser = (
-            'fetch' in window &&
-            'Promise' in window &&
-            'assign' in Object &&
-            'keys' in Object
-        );
-
-        if (!newBrowser) {
-            var scriptEl = document.createElement('script');
-            <% if(filenameMap) { %>
-            var filename = "<%= filenameMap['polyfills.js'] %>";
-            <% } else { %>
-            var filename = 'polyfills.js';
-            <% } %>
-            scriptEl.src = '<%= rootRelPath %>/js/'+ filename;
-            scriptEl.async = false;
-            document.head.appendChild(scriptEl);
-        }
-    </script>
 </head>

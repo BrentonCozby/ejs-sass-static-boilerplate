@@ -7,8 +7,7 @@ import { Dir, rootRelPath } from './config.js'
 export default {
     entry: {
         bundle: [`.${sep}` + join('src', 'js', 'index.js')],
-        vendor: [`.${sep}` + join('src', 'js', 'vendor.js')],
-        polyfills: [`.${sep}` + join('src', 'js', 'polyfills.js')]
+        vendor: [`.${sep}` + join('src', 'js', 'vendor.js')]
     },
     output: {
         filename: `.${sep}` + join('dist', 'js', '[name].js'),

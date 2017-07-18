@@ -1,3 +1,9 @@
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?callback=polyfillsAreLoaded" defer async></script>
+<script>
+    function polyfillsAreLoaded() {
+        loadAppCode()
+    }
+</script>
 <% if(filenameMap) { %>
 <script src="<%= rootRelPath %>/js/<%= filenameMap['vendor.js'] %>"></script>
 <script src="<%= rootRelPath %>/js/<%= filenameMap['bundle.js'] %>"></script>
