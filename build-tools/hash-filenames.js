@@ -1,7 +1,7 @@
 import fs from 'fs'
 import crypto from 'crypto'
 import { resolve } from 'path'
-import { Dir, rootAbsPath } from '../config.js'
+import { Dir, DEV_PATH } from '../config.js'
 import transformFiles from './transform-files.js'
 
 const dirs = [
@@ -50,7 +50,7 @@ function hashFilenames(directories) {
         transformFiles(dir, {}, transformer)
     })
 
-    fs.writeFileSync(resolve(rootAbsPath, 'filename-map.json'), JSON.stringify(mapData), 'utf-8')
+    fs.writeFileSync(resolve(DEV_PATH, 'filename-map.json'), JSON.stringify(mapData), 'utf-8')
 
     console.log('\nFilenames hashed!\n');
 }

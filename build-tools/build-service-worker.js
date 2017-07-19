@@ -1,9 +1,9 @@
 import swPrecache from 'sw-precache'
-import { Dir, siteName, rootRelPath } from '../config.js'
+import { Dir, SITE_NAME } from '../config.js'
 import { resolve } from 'path'
 
 swPrecache.write(resolve(Dir.dist, `service-worker.js`), {
-    cacheId: siteName,
+    cacheId: SITE_NAME,
     filename: `service-worker.js`,
     stripPrefix: Dir.dist,
     staticFileGlobs: [

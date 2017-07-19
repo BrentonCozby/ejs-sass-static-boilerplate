@@ -2,7 +2,13 @@
 <html lang="en">
 <%- include(`${partials}/head`, {pageTitle: 'Page Not Found'}); -%>
 <body>
-    <h1>404 Page Not Found</h1>
+
+    <section>
+        <div class="container">
+            <h1>404 Page Not Found</h1>
+            <p>Go back <a href="<%= PUBLIC_PATH %>">Home</a>.</p>
+        </div>
+    </section>
 
     <%- include(`${partials}/bottom`); -%>
 </body>

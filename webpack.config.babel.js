@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import { join, sep } from 'path'
 require('dotenv').config()
 
-import { Dir, rootRelPath } from './config.js'
+import * as config from './config.js'
 
 export default {
     entry: {
@@ -11,7 +11,7 @@ export default {
     },
     output: {
         filename: `.${sep}` + join('dist', 'js', '[name].js'),
-        publicPath: rootRelPath + sep
+        publicPath: config.PUBLIC_PATH
     },
     module: {
         rules: [
@@ -29,5 +29,16 @@ export default {
                 }]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            PUBLIC_PATH: JSON.stringify(config.PUBLIC_PATH),
+            SITE_TITLE: JSON.stringify(config.SITE_TITLE),
+            SITE_NAME: JSON.stringify(config.SITE_NAME),
+            DESCRIPTION: JSON.stringify(config.DESCRIPTION),
+            SITE_URL: JSON.stringify(config.SITE_URL),
+            DEVELOPER_NAME: JSON.stringify(config.DEVELOPER_NAME),
+            DEVELOPER_URL: JSON.stringify(config.DEVELOPER_URL)
+        })
+    ]
 }

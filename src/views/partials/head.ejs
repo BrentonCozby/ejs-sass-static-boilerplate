@@ -2,40 +2,42 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= siteTitle %> | <%= pageTitle %></title>
-    <meta name="description" content="<%= description %>">
-    <meta property="og:url" content="<%= siteUrl %>">
-    <meta property="og:site_name" content="<%= siteTitle %>">
+    <title><%= SITE_TITLE %> | <%= pageTitle %></title>
+    <meta name="description" content="<%= DESCRIPTION %>">
+    <meta property="og:url" content="<%= SITE_URL %>">
+    <meta property="og:site_name" content="<%= SITE_TITLE %>">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<%= siteTitle %>">
-    <meta property="og:description" content="<%= description %>">
+    <meta property="og:title" content="<%= SITE_TITLE %>">
+    <meta property="og:description" content="<%= DESCRIPTION %>">
     <meta property="og:image" content="">
-    <meta name="twitter:title" content="<%= siteTitle %>">
-    <meta name="twitter:description" content="<%= description %>">
+    <meta name="twitter:title" content="<%= SITE_TITLE %>">
+    <meta name="twitter:description" content="<%= DESCRIPTION %>">
     <meta name="twitter:image" content="">
     <meta name="twitter:image:alt" content="">
-    <meta name="twitter:site" content="<%= siteUrl %>">
-    <meta name='author' content='<%= developerName %>. <%= developerURL %>'>
+    <meta name="twitter:site" content="<%= SITE_URL %>">
+    <meta name='author' content='<%= DEVELOPER_NAME %>. <%= DEVELOPER_URL %>'>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('<%= rootRelPath %>/service-worker.js');
+            navigator.serviceWorker.register('<%= PUBLIC_PATH %>service-worker.js');
         }
     </script>
     <%- include('favicons') -%>
+
+    <!-- Vendor css files -->
+    <link rel="stylesheet" href="<%= PUBLIC_PATH %>vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- End vendor CSS files -->
+
 <% if(filenameMap) { %>
-    <link rel="stylesheet" href="<%= rootRelPath %>/css/<%= filenameMap['shared.css'] %>">
-    <link rel="stylesheet" href="<%= rootRelPath %>/css/<%= filenameMap['index.css'] %>">
-    <link rel="preload" href="<%= rootRelPath %>/js/<%= filenameMap['vendor.js'] %>" as="script">
-    <link rel="prefetch" href="<%= rootRelPath %>/js/<%= filenameMap['vendor.js'] %>">
-    <link rel="preload" href="<%= rootRelPath %>/js/<%= filenameMap['bundle.js'] %>" as="script">
-    <link rel="prefetch" href="<%= rootRelPath %>/js/<%= filenameMap['bundle.js'] %>">
+    <link rel="stylesheet" href="<%= PUBLIC_PATH %>css/<%= filenameMap['index.css'] %>">
+    <link rel="preload" href="<%= PUBLIC_PATH %>js/<%= filenameMap['vendor.js'] %>" as="script">
+    <link rel="prefetch" href="<%= PUBLIC_PATH %>js/<%= filenameMap['vendor.js'] %>">
+    <link rel="preload" href="<%= PUBLIC_PATH %>js/<%= filenameMap['bundle.js'] %>" as="script">
+    <link rel="prefetch" href="<%= PUBLIC_PATH %>js/<%= filenameMap['bundle.js'] %>">
 <% } else { %>
-    <link rel="stylesheet" href="<%= rootRelPath %>/css/shared.css">
-    <link rel="stylesheet" href="<%= rootRelPath %>/css/index.css">
-    <link rel="stylesheet" href="<%= rootRelPath %>/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="preload" href="<%= rootRelPath %>/js/vendor.js" as="script">
-    <link rel="prefetch" href="<%= rootRelPath %>/js/vendor.js">
-    <link rel="preload" href="<%= rootRelPath %>/js/bundle.js" as="script">
-    <link rel="prefetch" href="<%= rootRelPath %>/js/bundle.js">
+    <link rel="stylesheet" href="<%= PUBLIC_PATH %>css/index.css">
+    <link rel="preload" href="<%= PUBLIC_PATH %>js/vendor.js" as="script">
+    <link rel="prefetch" href="<%= PUBLIC_PATH %>js/vendor.js">
+    <link rel="preload" href="<%= PUBLIC_PATH %>js/bundle.js" as="script">
+    <link rel="prefetch" href="<%= PUBLIC_PATH %>js/bundle.js">
 <% } %>
 </head>

@@ -2,25 +2,24 @@ import favicons from 'favicons'
 import { resolve, join, sep } from 'path'
 import {
     Dir,
-    siteTitle,
-    siteUrl,
-    description,
-    rootRelPath,
-    developerName,
-    developerURL
+    SITE_TITLE,
+    DESCRIPTION,
+    PUBLIC_PATH,
+    DEVELOPER_NAME,
+    DEVELOPER_URL
 } from '../config.js'
 import fs from 'fs'
 
 const source = resolve(Dir.images, 'b-icon.png')
 
 const config = {
-    appName: siteTitle,                  // Your application's name. `string`
-    appDescription: description,           // Your application's description. `string`
-    developerName: developerName,            // Your (or your developer's) name. `string`
-    developerURL: developerURL,             // Your (or your developer's) URL. `string`
+    appName: SITE_TITLE,                  // Your application's name. `string`
+    appDescription: DESCRIPTION,           // Your application's description. `string`
+    developerName: DEVELOPER_NAME,            // Your (or your developer's) name. `string`
+    developerURL: DEVELOPER_URL,             // Your (or your developer's) URL. `string`
     background: "#111",             // Background colour for flattened icons. `string`
     theme_color: "#111",            // Theme color for browser chrome. `string`
-    path: join(sep, rootRelPath, 'images', 'favicons'),                      // Path for overriding default icons path. `string`
+    path: join(PUBLIC_PATH, 'images', 'favicons'),                      // Path for overriding default icons path. `string`
     display: "standalone",          // Android display: "browser" or "standalone". `string`
     orientation: "portrait",        // Android orientation: "portrait" or "landscape". `string`
     start_url: "/?homescreen=1",    // Android start application's URL. `string`

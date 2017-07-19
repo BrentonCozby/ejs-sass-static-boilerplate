@@ -2,21 +2,21 @@ import { resolve } from 'path'
 import fs from 'fs'
 import {
     Dir,
-    rootRelPath,
-    rootAbsPath,
-    siteTitle,
-    siteUrl,
-    description,
-    developerName,
-    developerURL
+    PUBLIC_PATH,
+    DEV_PATH,
+    SITE_TITLE,
+    SITE_URL,
+    DESCRIPTION,
+    DEVELOPER_NAME,
+    DEVELOPER_URL
 } from '../config.js'
 import transformFiles from './transform-files.js'
 import ejs from 'ejs'
 require('dotenv').config()
 
 let filenameMap = null
-if(fs.existsSync(resolve(rootAbsPath, 'filename-map.json'))) {
-    const fileContents = fs.readFileSync(resolve(rootAbsPath, 'filename-map.json'), 'utf-8')
+if(fs.existsSync(resolve(DEV_PATH, 'filename-map.json'))) {
+    const fileContents = fs.readFileSync(resolve(DEV_PATH, 'filename-map.json'), 'utf-8')
     filenameMap = JSON.parse(fileContents)
 }
 
@@ -27,12 +27,12 @@ function transformer(filename, inputDir, outputDir) {
             delimiter: '%',
             filename: filePath,
             partials: Dir.partials,
-            rootRelPath,
-            siteTitle,
-            siteUrl,
-            description,
-            developerName,
-            developerURL,
+            PUBLIC_PATH,
+            SITE_TITLE,
+            SITE_URL,
+            DESCRIPTION,
+            DEVELOPER_NAME,
+            DEVELOPER_URL,
             filenameMap
         })
     const filenamePlain = filename.split('.ejs')[0]

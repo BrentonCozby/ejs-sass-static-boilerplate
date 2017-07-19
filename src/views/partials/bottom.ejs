@@ -1,20 +1,8 @@
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?callback=polyfillsAreLoaded" defer async></script>
-<script>
-    function polyfillsAreLoaded() {
-        function polyfillsAreLoaded() {
-            var checkAppCode = setInterval(function() {
-                if(loadAppCode) {
-                    loadAppCode()
-                    clearInterval(checkAppCode)
-                }
-            }, 10)
-        }
-    }
-</script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 <% if(filenameMap) { %>
-<script src="<%= rootRelPath %>/js/<%= filenameMap['vendor.js'] %>"></script>
-<script src="<%= rootRelPath %>/js/<%= filenameMap['bundle.js'] %>"></script>
+<script src="<%= PUBLIC_PATH %>js/<%= filenameMap['vendor.js'] %>"></script>
+<script src="<%= PUBLIC_PATH %>js/<%= filenameMap['bundle.js'] %>"></script>
 <% } else { %>
-<script src="<%= rootRelPath %>/js/vendor.js"></script>
-<script src="<%= rootRelPath %>/js/bundle.js"></script>
+<script src="<%= PUBLIC_PATH %>js/vendor.js"></script>
+<script src="<%= PUBLIC_PATH %>js/bundle.js"></script>
 <% } %>
