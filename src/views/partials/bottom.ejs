@@ -1,7 +1,14 @@
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?callback=polyfillsAreLoaded" defer async></script>
 <script>
     function polyfillsAreLoaded() {
-        loadAppCode()
+        function polyfillsAreLoaded() {
+            var checkAppCode = setInterval(function() {
+                if(loadAppCode) {
+                    loadAppCode()
+                    clearInterval(checkAppCode)
+                }
+            }, 100)
+        }
     }
 </script>
 <% if(filenameMap) { %>
