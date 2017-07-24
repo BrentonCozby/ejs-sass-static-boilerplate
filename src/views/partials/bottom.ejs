@@ -6,3 +6,9 @@
 <script src="<%= PUBLIC_PATH %>js/vendor.js"></script>
 <script src="<%= PUBLIC_PATH %>js/bundle.js"></script>
 <% } %>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('<%= PUBLIC_PATH %>service-worker.js');
+    }
+</script>
