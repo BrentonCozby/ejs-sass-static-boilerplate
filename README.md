@@ -1,6 +1,9 @@
 # ejs-sass-static-boilerplate
 Boilerplate for a Static website using EJS and SASS.
 
+## Source of Truth
+Set site information in the config.js file. These variables are used throughout the site.
+
 ## DEVELOPMENT
 **Usage:** Run the following scripts in 4 different terminal tabs:
 1. ```npm run setup-for-dev``` and then ```npm start```
