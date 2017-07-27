@@ -7,7 +7,7 @@ swPrecache.write(resolve(Dir.dist, `service-worker.js`), {
     filename: `service-worker.js`,
     stripPrefix: Dir.dist,
     staticFileGlobs: [
-        `${Dir.dist}/**/*.{html,js,css,png,jpg,gif,svg,eot,ttf,woff}`
+        `${Dir.dist}/**/*.{html,js,json,css,xml,txt,png,jpg,gif,svg,eot,ttf,woff}`
     ],
     dontCacheBustUrlsMatching: [
         /\.(js|json|css)$/, // I'm cache busting these files myself
