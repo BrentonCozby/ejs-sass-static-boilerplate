@@ -3,7 +3,6 @@ $main-font: "Helvetica Neue", "Calibri Light", "Roboto", sans-serif;
 * {
     box-sizing: border-box;
     position: relative;
-    transition: all 200ms;
     font-family: $main-font;
     color: #212121;
     -webkit-font-smoothing: antialiased;
