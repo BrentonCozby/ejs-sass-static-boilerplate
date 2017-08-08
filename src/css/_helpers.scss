@@ -46,6 +46,7 @@
 
 @mixin appear($offset, $speed) {
     opacity: 0;
+    transition: all 200ms;
     transform: translateY($offset);
     transition-timing-function: ease-out;
 
