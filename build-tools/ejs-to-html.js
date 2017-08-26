@@ -35,6 +35,7 @@ function transformer(filename, inputDir, outputDir) {
             DESCRIPTION,
             DEVELOPER_NAME,
             DEVELOPER_URL,
+            NODE_ENV: process.env.NODE_ENV,
             filenameMap
         })
     const filenamePlain = filename.split('.ejs')[0]
