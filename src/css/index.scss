@@ -12,6 +12,13 @@ section.top {
     min-height: 100vh;
 }
 
+section.content {
+
+    #me {
+        box-shadow: 0 10px 40px -5px rgba(0, 0, 0, .9);
+    }
+}
+
 li {
     margin: 90px 0;
 }
