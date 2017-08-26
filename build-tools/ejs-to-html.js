@@ -6,6 +6,7 @@ import {
     DEV_PATH,
     SITE_TITLE,
     SITE_URL,
+    SITE_IMAGE,
     DESCRIPTION,
     DEVELOPER_NAME,
     DEVELOPER_URL
@@ -30,6 +31,7 @@ function transformer(filename, inputDir, outputDir) {
             PUBLIC_PATH,
             SITE_TITLE,
             SITE_URL,
+            SITE_IMAGE,
             DESCRIPTION,
             DEVELOPER_NAME,
             DEVELOPER_URL,

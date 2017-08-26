@@ -1,3 +1,9 @@
+/*!
+ * node-version
+ * Copyright(c) 2011-2017 Rodolphe Stoclin
+ * MIT Licensed
+ */
+
 module.exports = (function() {
   var version = process.version;
 

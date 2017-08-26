@@ -28,27 +28,27 @@
     "license": "MIT",
     "devDependencies": {
         "autoprefixer": "^7.1.2",
-        "babel-cli": "^6.24.1",
-        "babel-core": "^6.25.0",
-        "babel-loader": "^7.1.1",
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
         "babel-preset-env": "^1.6.0",
         "babel-preset-stage-0": "^6.24.1",
         "clean-css": "^4.1.7",
         "dotenv": "^4.0.0",
-        "ejs": "^2.5.6",
+        "ejs": "^2.5.7",
         "favicons": "^4.8.6",
-        "html-minifier": "^3.5.2",
+        "html-minifier": "^3.5.3",
         "node-sass": "^4.5.3",
         "postcss-cli": "^4.1.0",
         "rimraf": "^2.6.1",
-        "serve": "^6.0.2",
+        "serve": "^6.0.6",
         "sw-precache": "^5.2.0",
-        "webpack": "^3.3.0"
+        "webpack": "^3.5.5"
     },
     "dependencies": {
-        "escape-html": "^1.0.3",
         "jquery": "^3.2.1",
-        "lodash.throttle": "^4.1.1"
+        "lodash.throttle": "^4.1.1",
+        "sanitize-html": "^1.14.1"
     },
     "repository": {
         "type": "git",

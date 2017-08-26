@@ -59,6 +59,11 @@ transformFiles(
     copyDir
 )
 transformFiles(
+    resolve(Dir.videos),
+    { dest: resolve(Dir.dist, 'videos') },
+    copyDir
+)
+transformFiles(
     resolve(Dir.misc),
     { dest: resolve(Dir.dist) },
     copyDir

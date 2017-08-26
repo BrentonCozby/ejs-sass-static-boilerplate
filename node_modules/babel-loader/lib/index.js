@@ -16,12 +16,13 @@ var fs = require("fs");
  */
 function BabelLoaderError(name, message, codeFrame, hideStack, error) {
   Error.call(this);
-  Error.captureStackTrace(this, BabelLoaderError);
 
   this.name = "BabelLoaderError";
   this.message = formatMessage(name, message, codeFrame);
   this.hideStack = hideStack;
   this.error = error;
+
+  Error.captureStackTrace(this, BabelLoaderError);
 }
 
 BabelLoaderError.prototype = Object.create(Error.prototype);
@@ -109,7 +110,7 @@ module.exports = function (source, inputSourceMap) {
   var fileSystem = this.fs ? this.fs : fs;
   var babelrcPath = null;
   if (loaderOptions.babelrc !== false) {
-    babelrcPath = exists(fileSystem, loaderOptions.babelrc) ? loaderOptions.babelrc : resolveRc(fileSystem, path.dirname(filename));
+    babelrcPath = typeof loaderOptions.babelrc === "string" && exists(fileSystem, loaderOptions.babelrc) ? loaderOptions.babelrc : resolveRc(fileSystem, path.dirname(filename));
   }
 
   if (babelrcPath) {
