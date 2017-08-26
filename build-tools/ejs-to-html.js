@@ -9,7 +9,8 @@ import {
     SITE_IMAGE,
     DESCRIPTION,
     DEVELOPER_NAME,
-    DEVELOPER_URL
+    DEVELOPER_URL,
+    GOOGLE_ANALYTICS_ID
 } from '../config.js'
 import transformFiles from './transform-files.js'
 import ejs from 'ejs'
@@ -35,6 +36,7 @@ function transformer(filename, inputDir, outputDir) {
             DESCRIPTION,
             DEVELOPER_NAME,
             DEVELOPER_URL,
+            GOOGLE_ANALYTICS_ID,
             NODE_ENV: process.env.NODE_ENV,
             filenameMap
         })

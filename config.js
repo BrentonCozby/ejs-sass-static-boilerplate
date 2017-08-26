@@ -10,6 +10,7 @@ export const SITE_URL = 'example.com'
 export const SITE_IMAGE = ''
 export const DEVELOPER_NAME = 'Brenton Cozby'
 export const DEVELOPER_URL = 'https://brentoncozby.com'
+export const GOOGLE_ANALYTICS_ID = ''
 export const DEV_PATH = __dirname
 
 const Dir = {
