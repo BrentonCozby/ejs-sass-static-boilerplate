@@ -54,17 +54,7 @@ transformFiles(
     copyDir
 )
 transformFiles(
-    resolve(Dir.images),
-    { dest: resolve(Dir.dist, 'images') },
-    copyDir
-)
-transformFiles(
-    resolve(Dir.videos),
-    { dest: resolve(Dir.dist, 'videos') },
-    copyDir
-)
-transformFiles(
-    resolve(Dir.misc),
+    resolve(Dir.copyToDist),
     { dest: resolve(Dir.dist) },
     copyDir
 )

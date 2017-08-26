@@ -16,7 +16,7 @@ const Dir = {
     src: resolve(__dirname, 'src'),
     css: resolve(__dirname, 'src', 'css'),
     js: resolve(__dirname, 'src', 'js'),
-    misc: resolve(__dirname, 'src', 'misc'),
+    copyToDist: resolve(__dirname, 'src', 'copy-to-dist'),
     images: resolve(__dirname, 'src', 'images'),
     videos: resolve(__dirname, 'src', 'videos'),
     vendor: resolve(__dirname, 'src', 'vendor'),
