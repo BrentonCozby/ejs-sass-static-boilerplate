@@ -1,16 +1,16 @@
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 <% if(filenameMap) { %>
-<script src="<%= PUBLIC_PATH %>js/<%= filenameMap['vendor.js'] %>"></script>
-<script src="<%= PUBLIC_PATH %>js/<%= filenameMap['bundle.js'] %>"></script>
+<script src="<%= PP %>js/<%= filenameMap['vendor.js'] %>"></script>
+<script src="<%= PP %>js/<%= filenameMap['bundle.js'] %>"></script>
 <% } else { %>
-<script src="<%= PUBLIC_PATH %>js/vendor.js"></script>
-<script src="<%= PUBLIC_PATH %>js/bundle.js"></script>
+<script src="<%= PP %>js/vendor.js"></script>
+<script src="<%= PP %>js/bundle.js"></script>
 <% } %>
 
 <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-            navigator.serviceWorker.register('<%= PUBLIC_PATH %>service-worker.js').then(function(registration) {
+            navigator.serviceWorker.register('<%= PP %>service-worker.js').then(function(registration) {
                 // Registration was successful
                   console.log('ServiceWorker registration successful with scope: ', registration.scope);
             });

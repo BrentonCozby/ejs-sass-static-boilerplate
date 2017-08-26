@@ -1,8 +1,8 @@
 import { resolve } from 'path'
 
-// The following variables are used in ./build-tools/ejs-to-html.js in the 'transformer' function
-export const DEV_PATH = __dirname
-export const PUBLIC_PATH = '/'
+// Use the following variables in src/views. They are made available in
+// build-tools/ejs-to-html.js in the 'transformer' function
+export const PP = '/' // PP (public path) must end with '/'
 export const SITE_TITLE = 'Static Boilerplate EJS-SASS'
 export const SITE_NAME = 'ejs-sass-static-boilerplate'
 export const DESCRIPTION = 'Boilerplate for a Static website using EJS and SASS'
@@ -10,6 +10,7 @@ export const SITE_URL = 'example.com'
 export const SITE_IMAGE = ''
 export const DEVELOPER_NAME = 'Brenton Cozby'
 export const DEVELOPER_URL = 'https://brentoncozby.com'
+export const DEV_PATH = __dirname
 
 const Dir = {
     dist: resolve(__dirname, 'dist'),

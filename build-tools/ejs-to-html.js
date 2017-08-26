@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import fs from 'fs'
 import {
     Dir,
-    PUBLIC_PATH,
+    PP,
     DEV_PATH,
     SITE_TITLE,
     SITE_URL,
@@ -28,7 +28,7 @@ function transformer(filename, inputDir, outputDir) {
             delimiter: '%',
             filename: filePath,
             partials: Dir.partials,
-            PUBLIC_PATH,
+            PP,
             SITE_TITLE,
             SITE_URL,
             SITE_IMAGE,

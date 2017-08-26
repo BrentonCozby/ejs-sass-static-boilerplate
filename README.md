@@ -4,6 +4,14 @@ Uses EJS, SASS, and the latest Babel presets.
 ## Source of Truth
 Set project info in the config.js file. These variables are used throughout the project.
 
+## Basic Usage
+* Use the PP (public path) value from config.js in the views dir with `<%= PP %>`. In fact, all 
+* src/copy-to-dist:
+    * If there is an images/pineapple.jpg file in src/copy-to-dist, in any of your *.ejs files in src/views, you would reference this file like this:
+        ```html
+            <img src="<%= PP %>images/pineapple.jpg">
+        ```
+
 ## DEVELOPMENT
 
 1. ```npm run setup-for-dev```
