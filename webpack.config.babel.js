@@ -1,7 +1,5 @@
 import webpack from 'webpack'
 import { join, sep } from 'path'
-require('dotenv').config()
-
 import * as config from './config.js'
 
 export default {

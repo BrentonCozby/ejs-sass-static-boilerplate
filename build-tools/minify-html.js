@@ -24,8 +24,6 @@ transformFiles(resolve(Dir.dist), {}, (filename, inputDir, outputDir) => {
 
         fs.writeFile(resolve(outputDir, filename), minified, err => {
             if(err) return console.log(err)
-
-            // console.log('\x1b[1m%s\x1b[0m', `${efficiency}%`, `smaller: ${filePath}`);
         })
     })
 

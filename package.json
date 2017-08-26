@@ -5,6 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start": "serve dist",
+        "setup-for-dev": "npm run rmprod && npm run copy-to-dist && npm run build:js && npm run build:css && npm run build:html && npm run build:sw",
+        "dev": "npm-run-all -l --parallel start watch:*",
+        "prod": "rimraf dist && npm run minify:js && npm run minify:css && npm run copy-to-dist && npm run hash-filenames && npm run minify:html && npm run build:sw",
         "build:html": "babel-node build-tools/ejs-to-html.js",
         "build:js": "webpack",
         "build:css": "npm run sass && npm run autoprefixer",
@@ -19,9 +22,7 @@
         "copy-to-dist": "babel-node build-tools/copy-to-dist.js",
         "hash-filenames": "babel-node build-tools/hash-filenames.js",
         "build:sw": "babel-node build-tools/build-service-worker.js",
-        "rmprod": "rimraf filename-map.json && rimraf dist",
-        "setup-for-dev": "npm run rmprod && npm run copy-to-dist && npm run build:js && npm run build:css && npm run build:html && npm run build:sw",
-        "prod": "rimraf dist && npm run minify:js && npm run minify:css && npm run copy-to-dist && npm run hash-filenames && npm run minify:html && npm run build:sw"
+        "rmprod": "rimraf filename-map.json && rimraf dist"
     },
     "author": "Brenton Cozby",
     "license": "MIT",
@@ -33,10 +34,10 @@
         "babel-preset-env": "^1.6.0",
         "babel-preset-stage-0": "^6.24.1",
         "clean-css": "^4.1.7",
-        "dotenv": "^4.0.0",
         "ejs": "^2.5.7",
         "html-minifier": "^3.5.3",
         "node-sass": "^4.5.3",
+        "npm-run-all": "^4.0.2",
         "postcss-cli": "^4.1.0",
         "rimraf": "^2.6.1",
         "serve": "^6.0.6",

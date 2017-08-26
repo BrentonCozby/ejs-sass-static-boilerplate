@@ -13,7 +13,6 @@ import {
 } from '../config.js'
 import transformFiles from './transform-files.js'
 import ejs from 'ejs'
-require('dotenv').config()
 
 let filenameMap = null
 if(fs.existsSync(resolve(DEV_PATH, 'filename-map.json'))) {
@@ -47,7 +46,6 @@ function transformer(filename, inputDir, outputDir) {
 
 // transform only the pages, not the partials
 transformFiles(Dir.pages, { dest: Dir.dist }, transformer)
-
 
 // watch ejs changes
 const args = process.argv
