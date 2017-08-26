@@ -5,9 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start": "serve dist",
-        "setup-for-dev": "npm run rmprod && npm run copy-to-dist && npm run build:js && npm run build:css && npm run build:html && npm run build:sw",
+        "setup-for-dev": "npm-run-all --sequential rmprod copy-to-dist build:*",
         "dev": "npm-run-all -l --parallel start watch:*",
-        "prod": "rimraf dist && npm run minify:js && npm run minify:css && npm run copy-to-dist && npm run hash-filenames && npm run minify:html && npm run build:sw",
+        "prod": "npm-run-all --sequential rmprod minify:js minify:css copy-to-dist hash-filenames minify:html build:sw",
         "build:html": "babel-node build-tools/ejs-to-html.js",
         "build:js": "webpack",
         "build:css": "npm run sass && npm run autoprefixer",

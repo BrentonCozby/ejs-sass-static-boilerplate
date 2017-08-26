@@ -18,6 +18,9 @@ let filenameMap = null
 if(fs.existsSync(resolve(DEV_PATH, 'filename-map.json'))) {
     const fileContents = fs.readFileSync(resolve(DEV_PATH, 'filename-map.json'), 'utf-8')
     filenameMap = JSON.parse(fileContents)
+} else {
+    console.error('ejs-to-html.js requires a filename-map.json file. None was found.')
+    process.exit(1)
 }
 
 function transformer(filename, inputDir, outputDir) {

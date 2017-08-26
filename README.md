@@ -1,32 +1,23 @@
-# ejs-sass-static-boilerplate
-Boilerplate for a Static website using EJS and SASS.
+# Brenton's Frontend Boilerplate
+Uses EJS, SASS, and the latest Babel presets.
 
 ## Source of Truth
-Set site information in the config.js file. These variables are used throughout the site.
+Set project info in the config.js file. These variables are used throughout the project.
 
 ## DEVELOPMENT
-**Usage:** Run the following scripts in 4 different terminal tabs:
-1. ```npm run setup-for-dev``` and then ```npm start```
-2. ```npm run watch:html```
-3. ```npm run watch:css```
-4. ```npm run watch:js```
 
-**Features:**
-- Watch css, js, and html files and recompile on change
-
+1. ```npm run setup-for-dev```
+2. ```npm run dev``` (to start server and watch files)
 
 ## PRODUCTION
 
-**Usage:** ```npm run prod```
+```npm run prod```
 
-**Features:**
-- Hashes css and js filenames in production for cache busting
-- Minification for CSS, JS, and HTML files
-- Autoprefix css
-- Separates vendor code from your code
+**Production Features:**
+- Minification for CSS (with Autoprefixer), JS (with Babel), and HTML files
+- Filename hashing for css and js files (for cache busting)
+- Easy Code-splitting. Just hookup your vendor code to the window object in src/js/vendor.js
 
-## Other Features
-- Generate favicons for all devices and media
+**Other Features:**
 - Use the latest JavaScript (babel-preset-stage-0)
-- A Polyfills.js file that only loads if the client doesn't have
-- certain features
+- A polyfills file from Polyfill.io file that only loads if the client doesn't have certain features
