@@ -15,7 +15,7 @@
         "watch:js": "webpack -w",
         "watch:css": "npm run sass && node-sass -w -r src/css -o dist/css --source-map true",
         "minify:html": "npm run build:html && babel-node build-tools/minify-html.js",
-        "minify:js": "webpack -p",
+        "minify:js": "webpack -p --optimize-minimize",
         "minify:css": "npm run build:css && babel-node build-tools/minify-css.js",
         "sass": "node-sass src/css -o dist/css --source-map-embed true",
         "autoprefixer": "postcss dist/css/**/*.css --use autoprefixer -r",
@@ -43,6 +43,7 @@
         "rimraf": "^2.6.1",
         "serve": "^6.0.6",
         "sw-precache": "^5.2.0",
+        "uglifyjs-webpack-plugin": "^0.4.6",
         "webpack": "^3.5.5"
     },
     "dependencies": {

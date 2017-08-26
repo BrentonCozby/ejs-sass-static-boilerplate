@@ -5,7 +5,7 @@ import * as config from './config.js'
 export default {
     entry: {
         bundle: [`.${sep}` + join('src', 'js', 'index.js')],
-        vendor: [`.${sep}` + join('src', 'js', 'vendor.js')]
+        common: [`.${sep}` + join('src', 'js', 'common', 'index.js')]
     },
     output: {
         filename: `.${sep}` + join('dist', 'js', '[name].js'),
@@ -35,6 +35,7 @@ export default {
             SITE_NAME: JSON.stringify(config.SITE_NAME),
             DESCRIPTION: JSON.stringify(config.DESCRIPTION),
             SITE_URL: JSON.stringify(config.SITE_URL),
+            SITE_IMAGE: JSON.stringify(config.SITE_IMAGE),
             DEVELOPER_NAME: JSON.stringify(config.DEVELOPER_NAME),
             DEVELOPER_URL: JSON.stringify(config.DEVELOPER_URL)
         })

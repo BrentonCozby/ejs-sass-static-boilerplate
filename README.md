@@ -28,7 +28,7 @@ Set project info in the config.js file. These variables are used throughout the 
 **Production Features:**
 - Minification for CSS (with Autoprefixer), JS (with Babel), and HTML files
 - Filename hashing for css and js files (for cache busting)
-- Easy Code-splitting. Just hookup your vendor code to the window object in src/js/vendor.js
+- Easy Code-splitting. Hookup code that won't change often (like libraries and packages) in src/js/commmon/index.js
 
 **Other Features:**
 - Use the latest JavaScript (babel-preset-stage-0)
