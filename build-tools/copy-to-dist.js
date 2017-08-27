@@ -49,12 +49,7 @@ function copyDir(filename, inputDir, outputDir) {
 }
 
 transformFiles(
-    resolve(Dir.vendor),
-    { dest: resolve(Dir.dist, 'vendor') },
-    copyDir
-)
-transformFiles(
-    resolve(Dir.copyToDist),
+    resolve(Dir.static),
     { dest: resolve(Dir.dist) },
     copyDir
 )
