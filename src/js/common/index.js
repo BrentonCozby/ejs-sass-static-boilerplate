@@ -15,9 +15,8 @@ window.libs = {}
 //      const { $, throttle } = libs
 //
 libs.$ = libs.jQuery = require('jquery')
-libs.throttle = require('lodash.throttle')
 libs.sanitizeHTML = require('sanitize-html')
 
-
+// Dump static code here
 require('./errors.js')
 require('./scroll-animations.js')

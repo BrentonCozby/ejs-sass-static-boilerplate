@@ -54,5 +54,4 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 - jQuery
 - sanitize-html
 - include-media
-- lodash's throttle function
 - HTML5Boilerplate
