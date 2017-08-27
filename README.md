@@ -7,6 +7,7 @@ Set project info in the config.js file. These variables are used throughout the 
 ## Basic Usage
 - Use the PP (public path) value from config.js in the views dir with `<%= PP %>`. This will allow you to deploy your site from whichever directory you set PP to
 - The src/static folder:
+    - Everything in this folder will be copied (with folder/file structure maintained) into the dist folder unchanged
     - If there is an images/pineapple.jpg file in src/static, you would reference this in any of your *.ejs files (src/views) like this:
         ```html
             <img src="<%= PP %>images/pineapple.jpg">
