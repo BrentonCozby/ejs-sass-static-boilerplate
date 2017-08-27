@@ -1,12 +1,12 @@
 // Add selectors here and they will all have the class 'scroll-visible'
 // added to them when they scroll into view
-let selectors = [
+const selectors = [
     $('.appear')
 ]
 
-let animElements = []
+const animElements = []
 
-function _populateElements() {
+const _populateElements = function () {
     selectors.forEach($selector => {
         $selector.each((i, el) => {
             animElements.push({element: $(el), position: null})
@@ -14,7 +14,7 @@ function _populateElements() {
     })
 }
 
-function _getPositions() {
+const _getPositions = function () {
     _populateElements()
 
     animElements.forEach($el => {
@@ -22,15 +22,15 @@ function _getPositions() {
     })
 }
 
-const supportPageOffset = window.pageXOffset !== undefined;
-const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+const supportPageOffset = (pageXOffset !== undefined)
+const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat")
 const windowScroll = function() {
-    return supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+    return supportPageOffset ? pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
 }
 let windowHeight = null
 let offset = 150
 
-function playAnimations() {
+const playAnimations = function () {
     animElements.forEach(el => {
         const triggerPoint = +el.position - +windowHeight + +offset
         if(windowScroll() > triggerPoint)
@@ -40,11 +40,11 @@ function playAnimations() {
     })
 }
 
-function onScroll() {
+const onScroll = function () {
     playAnimations()
 }
 
-function _showItemsInView() {
+const _showItemsInView = function () {
     windowHeight = $(window).height()
     offset = windowHeight * .1
     _getPositions()

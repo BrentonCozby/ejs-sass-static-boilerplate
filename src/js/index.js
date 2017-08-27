@@ -25,4 +25,3 @@ console.log(`NODE_ENV: ${NODE_ENV}`)
 setInterval(function() {
     $('#time').text((new Date).toGMTString())
 }, 1000)
-

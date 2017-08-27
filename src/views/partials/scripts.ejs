@@ -24,24 +24,28 @@
                     // and there's no need to prompt for a reload at that point.
                     // So check here to see if the page is already controlled,
                     // i.e. whether there's an existing service worker.
-                    if (navigator.serviceWorker.controller) {
-                        // The updatefound event implies that registration.installing is set:
-                        // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-container-updatefound-event
-                        var installingWorker = registration.installing;
+                    var installingWorker = registration.installing;
 
-                        installingWorker.onstatechange = function() {
-                            switch (installingWorker.state) {
-                                case 'installed':
+                    installingWorker.onstatechange = function() {
+                        switch (installingWorker.state) {
+                            case 'installed':
+                                if (navigator.serviceWorker.controller) {
                                     // At this point, the old content will have been purged and the
                                     // fresh content will have been added to the cache.
                                     // It's the perfect time to display a "New content is
                                     // available; please refresh." message in the page's interface.
-                                    break;
-                                case 'redundant':
-                                    throw new Error('The installing service worker became redundant.');
-                                default:
-                            }
-                        };
+                                    console.log('New or updated content is available. Please refresh to receive new content.')
+                                } else {
+                                    // At this point, everything has been precached.
+                                    // It's the perfect time to display a "Content is cached for offline use." message.
+                                    console.log('Content is now available offline!');
+                                }
+                                break;
+
+                            case 'redundant':
+                                console.error('The installing service worker became redundant.')
+                                break;
+                        }
                     }
                 }
             })
