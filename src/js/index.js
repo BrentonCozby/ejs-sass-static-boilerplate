@@ -22,9 +22,18 @@
 
 console.log(`NODE_ENV: ${NODE_ENV}`)
 
-// import jQuery from window.libs (src/js/common/index.js)
-const { $ } = libs
+// import libraries from window.libs (src/js/common/index.js)
+const { $, sanitizeHTML } = libs
 
 setInterval(function() {
-    $('#time').text((new Date).toGMTString())
+    $('#time').html(` - <b>${(new Date).toLocaleTimeString()}</b>`)
 }, 1000)
+
+const $mainForm = $('#main-form')
+$mainForm.submit(e => {
+    e.preventDefault()
+
+    $('#submitted-message').html(
+        `<b>Sanitized Message</b>: ${sanitizeHTML($mainForm[0].message.value)}`
+    )
+})

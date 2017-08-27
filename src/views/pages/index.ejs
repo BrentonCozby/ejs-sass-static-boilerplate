@@ -8,34 +8,45 @@
 
     <section class="top">
         <div class="container">
-            <br>
-            <br>
             <h1>Cello, World! <i class="fa fa-bath" aria-hidden="true"></i></h1>
             <img src="https://d2e3e84rl7gqyp.cloudfront.net/cellos.jpeg" alt="Cello World">
             <br>
             <p>Go to <a href="<%= PP %>/users/brian">Brian's Page</a>.</p>
-            <h4>Date: <span id="time"><%= (new Date).toGMTString() %></span></h4>
-            <p>NODE_ENV: <%= NODE_ENV %></p>
+            <p><b>Date: </b><%= (new Date).toDateString() %><span id="time"></span></p>
+            <p><b>NODE_ENV:</b> <%= NODE_ENV %></p>
+            <form action="" id="main-form">
+                <label for=""><b>Message:</b></label>
+                <br>
+                <textarea name="message" rows="4" cols="58">Hello!<script>alert('XSS attack!')</script> I'm a hacker</textarea>
+                <br>
+                <input type="submit" value="Submit Message">
+            </form>
+            <br>
+            <div id="submitted-message"></div>
         </div>
     </section>
 
     <section class="content">
         <div class="container">
-            <h2>Brenton</h2>
-            <img id="me" src="<%= PP %>/images/me-smiling.jpg" alt="Me Smiling">
-            <ul>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-                <li class="appear">This is a thing.</li>
-            </ul>
             <br>
+            <img id="me" src="<%= PP %>/images/me-smiling.jpg" alt="Me Smiling">
+            <div class="text-content">
+                <h2 style="margin-top: 0;">Miami Ipsum</h2>
+                <p>D. Wade amet mDC Panthers flaca fontainebleau supposably JWB yahs, sall-mon north beach upper east side LIV oye morena civic center sweetwater traffic. Jackson memorial Marlins UM guayaba gramps pops porter the fair. Wynwood pastelitos FIU, Marlins ño oye morena ocean drive north beach fire. Pitbull ventanita tiki tiki music civic center.</p>
+                <p>Arroz con mango flaca metrorail pops porter calle ocho ventanita design district supposably traffic vizcaya croquetica. Arroz con mango guayaba tiki tiki music ventanita no yeah, yeah no coconut grove. Bfe no yeah, yeah no cafecito 826. Papo south beach irregardless Heat, miami time yahs venetian causeway design district wynwood lummus park downtown doralzuela. ño upper east side guateber cafe bustelo, MiMo critical mass westchester Heat. Power love hour coconut grove the roads oye morena ño Mr. 305/Worldwide. Haslem upper east side Allapattah promoter friend the roads PubSub completo dolphin mall que fancy kendall coconut grove art deco FIU edgewater.</p>
+                <h2>Cafe Bustelo Pata Sucia Valsan</h2>
+                <p>North beach ño domino, Allapattah Ultra west flagler flagler que pena Azucar. Lummus park omni FIU doral JWB, fontainebleau promoter friend flagler bulykkk mission bro meng. Guayaba ño Panthers kendall fire cafe llave basel calle ocho. Besito yahs traffic north beach westchester. The roads Mr. 305/Worldwide fontainebleau tiki tiki music girl supposably. Metromover sweetwater miami west flagler.</p>
+                <p>Besito miami 826, guy vizcaya the roads supposably dassitttt UM MDC little haiti pero like bird road. Cafe con leche completo no yeah, yeah no super art basel botanica quesito pero like little havana downtown Marlins upper east side the roads. MDC bottles dale hialeah sweetwater LIV kendall promoter friend metromover Ultra Miami time pops porter croquetas bird road. Power 96 Mr. 305/Worldwide mission bro croquetas no yeah, yeah no. Gramps venetian causeway domino, dolphin mall valsan lonche metrorail LIV promoter friend cafe bustelo.</p>
+                <h2>Little Haiti Lummus Park Design District</h2>
+                <p>Cocowalk quesito, critical mass power 96 south beach chonga Miami time doral pops porter MiMo miami springs booty bass. Bird road pero like caja china croquetas, abuelita FIU kendall mission bro coral way MiMo chonga design district Haslem dale. Botanica guateber leah arts district abuelita, metrorail pero like calle ocho 826 ocean drive cafe bustelo girl guy domino. PubSub valsan traffic, getty cafe bustelo upper east side Panthers power love hour little havana.</p>
+                <h2>Que Cute Chonga Booty Bass</h2>
+                <p>Pops porter metromover, flagler 836 miami venetian causeway. Pastelitos UM fire MDC bro dale abuelita, dassitttt FIU park west ventanita the fair pero like cafe llave. Critical mass hialeah Marlins abuelita miami springs traffic pastelitos. Guayaba sall-mon edgewater, domino que cute bfe dassitttt casa de carajo ventanita. Doral chonga promoter friend tiki tiki music omni pops porter telly la 20 y 20 bfe cafe llave collins ave.</p>
+                <p>Omni Dolphins the roads critical mass art basel. Literally cafecito besito pero like, casa de carajo the fair promoter friend miami time power 96 MiMo 836 no yeah, yeah no pastelitos. Pata sucia meng flagler north beach que cute 826 la 20 y 20 the fair midtown 305 till I die Miami time. Collins ave basel PubSub, ventanita arroz con mango metrorail leah arts district FIU Allapattah Azucar besito guayaba literally miami springs valsan. Pata sucia telly JWB, sall-mon critical mass oye morena midtown doral. No yeah, yeah no yahs leah arts district, Miami time brickell Heat ventanita domino jackson memorial flaca west flagler downtown irregardless guayaba gorda.</p>
+                <p>Sall-mon yahs MDC mission bro, gramps miami time vizcaya quesito lummus park cocowalk oye morena UM Haslem coconut grove. Miami ventanita venetian causeway basel de pinga UM little haiti que fancy. Fire 826 hialeah, caja china leah arts district doralzuela park west. Botanica ya tu sabes cafecito, calle ocho telly jackson memorial little havana collins ave girl upper east side Deco Drive. Buena vista yahs doral, little havana doralzuela meng miami springs MiMo collins ave.</p>
+                <h2>Arroz Con Mango y Pastelitos</h2>
+                <p>Que cute flagami coral way, art basel omni flaca MiMo botanica Marlins. Pops porter wynwood bird road power 96 flaca yahs little havana. No yeah, yeah no Dolphins basel, cafecito Pitbull bfe brickell UM meng guayaba vizcaya. Caja china 826 calle ocho Allapattah. Lummus park omni basel miami art basel miami springs flaca abuelita guayaba flagami leah arts district 836 miami time.</p>
+                <p>The roads girl oye morena  bfe westchester. Valsan MiMo bro, brickell jackson memorial Marlins Pepe Billete flaca wynwood vizcaya super guy sweetwater. Booty bass PubSub doralzuela edgewater, venetian causeway ricer park west westchester dale. Casa de carajo guy botanica la 20 y 20 ño, UM Deco Drive MDC tiki tiki music ya tu sabes park west bird road guateber collins ave. Flagami lummus park botanica besito pata sucia booty bass PLP sall-mon de pinga casa de carajo meng.</p>
+            </div>
         </div>
     </section>
 

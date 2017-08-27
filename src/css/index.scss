@@ -12,13 +12,12 @@ section.top {
     min-height: 100vh;
 }
 
-section.content {
+#me {
+    box-shadow: 0 10px 40px -5px rgba(0, 0, 0, .9);
 
-    #me {
-        box-shadow: 0 10px 40px -5px rgba(0, 0, 0, .9);
+    @media all and (min-width: 1000px) {
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 10px;
     }
-}
-
-li {
-    margin: 90px 0;
 }

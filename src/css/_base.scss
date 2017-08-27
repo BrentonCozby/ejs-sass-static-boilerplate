@@ -5,10 +5,10 @@ $main-font: "Helvetica Neue", "Calibri Light", "Roboto", sans-serif;
     position: relative;
 }
 
-html {
+html, p, a, li, span, button, input, textarea {
     font-family: $main-font;
     color: #666;
-    line-height: 1.5;
+    line-height: 1.6;
     font-size: 18px;
     font-weight: 300;
     letter-spacing: .5px;
