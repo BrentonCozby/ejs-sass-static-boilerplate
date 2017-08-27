@@ -13,4 +13,13 @@ html,
 body {
     min-height: 100%;
     width: 100%;
+    color: #666;
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #444;
+    line-height: 1.2;
+    font-weight: normal;
 }
