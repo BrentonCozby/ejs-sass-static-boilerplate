@@ -46,14 +46,15 @@ function findFiles(rootDir, directory, options, transformer) {
     })
 }
 
-// directory parameter must be an absolute path
 /*
+    directory parameter must be an absolute path
+
     options: {
         dest: absolute path to write files to,
         flatten: boolean. don't preserve folder structure
     }
 */
-function transformFiles(directory, options, transformer) {
+function transformFiles(directory, options = {}, transformer) {
     const rootDir = directory
 
     findFiles(rootDir, directory, options, transformer)

@@ -30,7 +30,8 @@ export default {
     },
     plugins: [
         new webpack.DefinePlugin({
-            PUBLIC_PATH: JSON.stringify(config.PUBLIC_PATH),
+            NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+            PP: JSON.stringify(config.PP),
             SITE_TITLE: JSON.stringify(config.SITE_TITLE),
             SITE_NAME: JSON.stringify(config.SITE_NAME),
             DESCRIPTION: JSON.stringify(config.DESCRIPTION),

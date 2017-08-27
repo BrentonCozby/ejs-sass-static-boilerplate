@@ -19,7 +19,7 @@ Set project info in the config.js file. These variables are used throughout the 
 2. ```npm run dev``` (to start server and watch files)
 
 **Development Features:**
-- "Hot Reloading" from browser-sync will update your app (without reloading the page!) whenever any file in dist is updated
+- "Hot Reloading" from browser-sync will update your app in the browser when you change your ejs, scss, or js files
 
 ## PRODUCTION
 
