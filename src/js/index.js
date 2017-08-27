@@ -22,6 +22,9 @@
 
 console.log(`NODE_ENV: ${NODE_ENV}`)
 
+// import jQuery from window.libs (src/js/common/index.js)
+const { $ } = libs
+
 setInterval(function() {
     $('#time').text((new Date).toGMTString())
 }, 1000)

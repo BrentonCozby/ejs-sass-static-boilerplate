@@ -1,5 +1,7 @@
 // Add selectors here and they will all have the class 'scroll-visible'
 // added to them when they scroll into view
+const { $, throttle } = libs
+
 const selectors = [
     $('.appear')
 ]
