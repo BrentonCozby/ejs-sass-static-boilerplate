@@ -16,6 +16,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 - A separate `common.js` bundle will be created from `src/js/common/index.js`. Set JS libraries on the window object in this file.
 - Some SASS helper classes are available in `src/css/_helpers.scss`
 - Add the class 'appear' to any html element to give it a fade-in/fade-out effect when it scrolls into/out-of view
+- Set Google Analytics ID in `config.js`
 
 ## DEVELOPMENT
 
