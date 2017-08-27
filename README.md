@@ -1,6 +1,11 @@
 # Brenton's Frontend Boilerplate
 Use EJS, SASS, and the latest JavaScript syntax to build fully-static production code with fast, live updates during development and the latest optimizations upon production. Global variables are used throughout the project to make it easily reconfigurable and DRY. Focus on building your frontend, not on building your tools.
 
+**Websites built with this boilerplate:**
+- [RallyPointWebinars.com](https://rallypointwebinars.com "Rally Point Webinars website")
+- [Myocortex.com](https://myocortex.com "Myocortex website")
+- [BrentonCozby.com](https://brentoncozby.com "Brenton Cozby's software development portfolio")
+
 ## Source of Truth
 **`config.js`**: The variables in this file, such as SITE_TITLE and PP (public path), are used throughout the project. Change them in config.js and they will be updated throughout your entire codebase where used. They are provided as global variables in your JS and EJS files.
 

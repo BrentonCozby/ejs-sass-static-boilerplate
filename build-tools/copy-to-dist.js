@@ -48,6 +48,7 @@ function copyDir(filename, inputDir, outputDir) {
     })
 }
 
+// will create dist if it doesn't already exist
 transformFiles(
     resolve(Dir.static),
     { dest: resolve(Dir.dist) },
