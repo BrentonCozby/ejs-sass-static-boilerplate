@@ -18,5 +18,6 @@ libs.$ = libs.jQuery = require('jquery')
 libs.sanitizeHTML = require('sanitize-html')
 
 // Dump static code here
+require('./helpers.js')
 require('./errors.js')
 require('./scroll-animations.js')

@@ -23,17 +23,16 @@
 console.log(`NODE_ENV: ${NODE_ENV}`)
 
 // import libraries from window.libs (src/js/common/index.js)
-const { $, sanitizeHTML } = libs
+const { sanitizeHTML } = libs
 
 setInterval(function() {
-    $('#time').html(` - <b>${(new Date).toLocaleTimeString()}</b>`)
+    $('#time').innerHTML = ` - <b>${(new Date).toLocaleTimeString()}</b>`
 }, 1000)
 
-const $mainForm = $('#main-form')
-$mainForm.submit(e => {
+const mainForm = $('#main-form')
+mainForm.on('submit', e => {
     e.preventDefault()
 
-    $('#submitted-message').html(
-        `<b>Sanitized Message</b>: ${sanitizeHTML($mainForm[0].message.value)}`
-    )
+    $('#submitted-message')
+        .innerHTML = `<b>Sanitized Message</b>: ${sanitizeHTML(mainForm.message.value)}`
 })

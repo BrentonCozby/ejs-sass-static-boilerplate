@@ -1,29 +1,12 @@
 // Add selectors here and they will all have the class 'scroll-visible'
 // added to them when they scroll into view
 import throttle from 'lodash/throttle'
-const { $ } = libs
 
 const selectors = [
     $('.appear')
 ]
 
-const animElements = []
-
-const _populateElements = function () {
-    selectors.forEach($selector => {
-        $selector.each((i, el) => {
-            animElements.push({element: $(el), position: null})
-        })
-    })
-}
-
-const _getPositions = function () {
-    _populateElements()
-
-    animElements.forEach($el => {
-        $el.position = $el.element.offset().top
-    })
-}
+let animElements = []
 
 const supportPageOffset = (pageXOffset !== undefined)
 const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat")
@@ -33,13 +16,30 @@ const windowScroll = function() {
 let windowHeight = null
 let offset = 150
 
+const _populateElements = function () {
+    animElements = []
+    selectors.forEach(selector => {
+        selector.forEach(element => {
+            animElements.push({element,  position: null})
+        })
+    })
+}
+
+const _getPositions = function () {
+    _populateElements()
+
+    animElements.forEach(el => {
+        el.position = el.element.getBoundingClientRect().top + windowScroll()
+    })
+}
+
 const playAnimations = function () {
     animElements.forEach(el => {
         const triggerPoint = +el.position - +windowHeight + +offset
         if(windowScroll() > triggerPoint)
-            el.element.addClass('scroll-visible')
+            el.element.classList.add('scroll-visible')
         else
-            el.element.removeClass('scroll-visible')
+            el.element.classList.remove('scroll-visible')
     })
 }
 
@@ -48,13 +48,13 @@ const onScroll = function () {
 }
 
 const _showItemsInView = function () {
-    windowHeight = $(window).height()
+    windowHeight = window.innerHeight
     offset = windowHeight * .1
     _getPositions()
     playAnimations()
 }
 
-$(document).ready(function() {
+window.on('load', function() {
     // make sure items in view when page loads become visible
     setTimeout(_showItemsInView, 300)
     setTimeout(_showItemsInView, 600)
@@ -66,7 +66,7 @@ $(document).ready(function() {
         _showItemsInView()
     }, 2000)
 
-    $(document).scroll(throttle(onScroll, 100))
+    document.on('scroll', throttle(onScroll, 100))
 })
 
 export { playAnimations }
