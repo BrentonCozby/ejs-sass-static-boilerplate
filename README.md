@@ -51,7 +51,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 **Included Libraries:**
 - Normalize.css
 - Font Awesome
-- jQuery
+- bling.js (the 1% of jQuery you use 99% of the time)
 - sanitize-html
 - include-media
 - HTML5Boilerplate
