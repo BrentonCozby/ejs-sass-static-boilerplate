@@ -12,9 +12,8 @@
 window.libs = {}
 // Import the following libraries in other files like this:
 //
-//      const { $, throttle } = libs
+//      const { sanitizeHTML } = libs
 //
-libs.$ = libs.jQuery = require('jquery')
 libs.sanitizeHTML = require('sanitize-html')
 
 // Dump static code here
