@@ -9,7 +9,7 @@ export default {
     },
     output: {
         filename: `.${sep}` + join('dist', 'js', '[name].js'),
-        publicPath: config.PUBLIC_PATH
+        publicPath: config.PUBLIC_PATH + sep
     },
     module: {
         rules: [
