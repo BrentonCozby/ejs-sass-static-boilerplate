@@ -9,7 +9,7 @@
         "dev": "NODE_ENV=development npm-run-all --parallel start watch:*",
         "prod": "NODE_ENV=production npm-run-all --sequential rmprod copy-to-dist minify:js minify:css prepend-banner hash-filenames minify:html build:sw",
         "build:html": "NODE_ENV=production babel-node build-tools/ejs-to-html.js",
-        "build:js": "webpack -p",
+        "build:js": "webpack -d",
         "build:css": "npm run sass && npm run autoprefixer",
         "watch:html": "NODE_ENV=development babel-node build-tools/ejs-to-html.js --watch",
         "watch:js": "webpack -w -d --display minimal",
