@@ -10,8 +10,8 @@ import {
     Dir
 } from '../config.js'
 
-function transformer(filename, inputDir, outputDir) {
-    const filePath = resolve(inputDir, filename)
+function transformer({filename, sourcePath}) {
+    const filePath = resolve(sourcePath, filename)
     let fileContents = fs.readFileSync(filePath, 'utf-8')
 
     fileContents = '/*!\n' +

@@ -22,8 +22,8 @@ if(fs.existsSync(resolve(DEV_PATH, 'filename-map.json'))) {
     filenameMap = JSON.parse(fileContents)
 }
 
-function transformer(filename, inputDir, outputDir) {
-    const filePath = resolve(inputDir, filename)
+function transformer({ filename, sourcePath, destinationPath }) {
+    const filePath = resolve(sourcePath, filename)
     const ejsTemplate = fs.readFileSync(filePath, 'utf-8')
     const html = ejs.render(ejsTemplate, {
             delimiter: '%',
@@ -41,7 +41,7 @@ function transformer(filename, inputDir, outputDir) {
             filenameMap
         })
     const filenamePlain = filename.split('.ejs')[0]
-    const newFilePath = resolve(outputDir, `${filenamePlain}.html`)
+    const newFilePath = resolve(destinationPath, `${filenamePlain}.html`)
 
     fs.writeFile(newFilePath, html, err => {
         if(err) return console.log(err)
@@ -49,7 +49,7 @@ function transformer(filename, inputDir, outputDir) {
 }
 
 // transform only the pages, not the partials
-transformFiles(Dir.pages, { dest: Dir.dist }, transformer)
+transformFiles(Dir.pages, { destination: Dir.dist }, transformer)
 
 // watch ejs changes
 const args = process.argv

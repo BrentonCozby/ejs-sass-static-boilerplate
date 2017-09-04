@@ -34,23 +34,21 @@ function setEncoding(filename) {
     return encoding
 }
 
-// Copy directories
-function copyDir(filename, inputDir, outputDir) {
-    const filePath = resolve(inputDir, filename)
-    const newFilePath = resolve(outputDir, filename)
+transformFiles(
+    Dir.static,
+    { destination: Dir.dist },
+    copyDir
+)
+
+function copyDir({ filename, sourcePath, destinationPath }) {
+    const filePath = resolve(sourcePath, filename)
+    const newFilePath = resolve(destinationPath, filename)
 
     fs.readFile(filePath, setEncoding(filename), (err, fileContents) => {
-        if(err) return console.log(err)
+        if (err) throw new Error(err)
 
         fs.writeFile(newFilePath, fileContents, err => {
-            if(err) return console.log(err)
+            if (err) throw new Error(err)
         })
     })
 }
-
-// will create dist if it doesn't already exist
-transformFiles(
-    resolve(Dir.static),
-    { dest: resolve(Dir.dist) },
-    copyDir
-)

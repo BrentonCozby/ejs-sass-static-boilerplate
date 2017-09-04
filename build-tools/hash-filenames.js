@@ -11,8 +11,8 @@ const dirs = [
 
 let mapData = {}
 
-function transformer(filename, inputDir, outputDir) {
-    const oldFilePath = resolve(inputDir, filename)
+function transformer({ filename, sourcePath, destinationPath }) {
+    const oldFilePath = resolve(sourcePath, filename)
 
     const fileContents = fs.readFileSync(oldFilePath, 'utf-8')
 
@@ -32,7 +32,7 @@ function transformer(filename, inputDir, outputDir) {
     const str = filename.split('')
     str.splice(filename.lastIndexOf('.'), 0, '.' + hash)
     const filenameHashed = str.join('')
-    const newFilePath = resolve(outputDir, filenameHashed)
+    const newFilePath = resolve(destinationPath, filenameHashed)
 
     fs.renameSync(oldFilePath, newFilePath)
 

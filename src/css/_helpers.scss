@@ -72,7 +72,7 @@
 
 @mixin appear($offset, $speed) {
     opacity: 0;
-    transition: all 200ms;
+    transition: opacity 300ms, transform 10000ms;
     transform: translateY($offset);
     transition-timing-function: ease-out;
 
@@ -84,7 +84,7 @@
 }
 
 .appear {
-    @include appear(30px, 700ms);
+    @include appear(30px, 1000ms);
 
     @media all and (min-width: 992px) {
         &.scroll-visible.delay-200 {

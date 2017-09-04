@@ -4,8 +4,8 @@ import { Dir } from '../config.js'
 import transformFiles from './transform-files.js'
 import { minify } from 'html-minifier'
 
-transformFiles(resolve(Dir.dist), {}, (filename, inputDir, outputDir) => {
-    const filePath = resolve(inputDir, filename)
+transformFiles(resolve(Dir.dist), {}, ({ filename, sourcePath, destinationPath }) => {
+    const filePath = resolve(sourcePath, filename)
 
     if(/\.html$/.test(filename) === false) return false
 
@@ -22,7 +22,7 @@ transformFiles(resolve(Dir.dist), {}, (filename, inputDir, outputDir) => {
             removeRedundantAttributes: true
         })
 
-        fs.writeFile(resolve(outputDir, filename), minified, err => {
+        fs.writeFile(resolve(destinationPath, filename), minified, err => {
             if(err) return console.log(err)
         })
     })
