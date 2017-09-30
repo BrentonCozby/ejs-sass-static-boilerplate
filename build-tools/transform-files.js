@@ -15,7 +15,7 @@ export default function transformFiles(
 ) {
     validateArgs()
 
-    if(!rootPath) rootPath = sourcePath
+    if (!rootPath) rootPath = sourcePath
 
     const dirContents = fs.readdirSync(sourcePath)
 
@@ -41,12 +41,8 @@ export default function transformFiles(
             throw new TypeError(`options.flatten must be a boolean value.\n`)
         }
         for (let optionName in options) {
-            switch (optionName) {
-                case 'destination':
-                case 'flatten':
-                    break;
-                default:
-                    throw new Error(`'${optionName}' is not a valid option.\n`)
+            if (optionName in defaultOptions === false) {
+                throw new Error(`'${optionName}' is not a valid option.\n`)
             }
         }
     }
