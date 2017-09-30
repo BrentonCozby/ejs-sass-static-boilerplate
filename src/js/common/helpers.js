@@ -19,4 +19,8 @@ NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn
   });
 }
 
+Object.prototype.pipe = function (fn) {
+    return fn(this)
+}
+
 /* END bling.js */
