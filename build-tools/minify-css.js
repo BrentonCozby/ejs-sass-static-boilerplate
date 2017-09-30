@@ -12,6 +12,6 @@ transformFiles(resolve(Dir.dist, 'css'), {}, ({ filename, sourcePath, destinatio
         if(err) return console.log(err)
 
         const efficiency = Math.round (Number(minified.stats.efficiency) * 100 )
-        console.log('\x1b[1m%s\x1b[0m', `${efficiency}%`, `smaller: ${filePath}`);
+        console.log('\x1b[1m%s\x1b[0m', `${efficiency}%`, `smaller: ${filePath}`)
     })
 })

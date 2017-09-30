@@ -20,7 +20,7 @@ function transformer({filename, sourcePath}) {
         `* ${SITE_URL}\n` +
         `* @author ${DEVELOPER_NAME} -- ${DEVELOPER_URL}\n` +
         `* Copyright ${(new Date).getFullYear()}. MIT Licensed.\n` +
-        `*/\n\n`  + fileContents
+        '*/\n\n'  + fileContents
 
     fs.writeFile(filePath, fileContents, err => {
         if(err) return console.log(err)

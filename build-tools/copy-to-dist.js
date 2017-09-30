@@ -7,28 +7,28 @@ function setEncoding(filename) {
     let encoding = 'utf-8'
 
     switch (true) {
-        //image types
-        case /\.jpeg$/.test(filename):
-        case /\.jpg$/.test(filename):
-        case /\.png$/.test(filename):
-        case /\.svg$/.test(filename):
-        case /\.gif$/.test(filename):
-        case /\.bmp$/.test(filename):
-        case /\.tiff$/.test(filename):
+    //image types
+    case /\.jpeg$/.test(filename):
+    case /\.jpg$/.test(filename):
+    case /\.png$/.test(filename):
+    case /\.svg$/.test(filename):
+    case /\.gif$/.test(filename):
+    case /\.bmp$/.test(filename):
+    case /\.tiff$/.test(filename):
 
-        // video types
-        case /\.mp4$/.test(filename):
-        case /\.webm$/.test(filename):
-        case /\.wav$/.test(filename):
+    // video types
+    case /\.mp4$/.test(filename):
+    case /\.webm$/.test(filename):
+    case /\.wav$/.test(filename):
 
-        // font types
-        case /\.otf$/.test(filename):
-        case /\.ttf$/.test(filename):
-        case /\.fnt$/.test(filename):
-        case /\.eot$/.test(filename):
-        case /\.woff$/.test(filename):
-        case /\.woff2$/.test(filename):
-            encoding = null
+    // font types
+    case /\.otf$/.test(filename):
+    case /\.ttf$/.test(filename):
+    case /\.fnt$/.test(filename):
+    case /\.eot$/.test(filename):
+    case /\.woff$/.test(filename):
+    case /\.woff2$/.test(filename):
+        encoding = null
     }
 
     return encoding

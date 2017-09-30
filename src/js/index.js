@@ -14,10 +14,10 @@
         DEV_PATH
 
     From js/common/index.js:
-        $
-        jQuery
-        throttle
         sanitizeHTML
+
+    From js/common/helpers.js
+        $ - querySelectorAll
 */
 
 console.log(`NODE_ENV: ${NODE_ENV}`)

@@ -2,25 +2,35 @@
 
 window.$ = function(selector) {
     let query = document.querySelectorAll(selector)
-    return (query.length === 1)
+    return (query.length <= 1)
         ? query[0]
         : query
 }
 
+NodeList.prototype.__proto__ = Array.prototype
+
 Node.prototype.on = window.on = function (name, fn) {
-  this.addEventListener(name, fn);
+    this.addEventListener(name, fn)
 }
 
-NodeList.prototype.__proto__ = Array.prototype;
+Node.prototype.off = window.off = function (name, fn) {
+    this.removeEventListener(name, fn)
+}
 
 NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
-  this.forEach(function (elem, i) {
-    elem.on(name, fn);
-  });
+    this.forEach(function (elem) {
+        elem.on(name, fn)
+    })
 }
+
+NodeList.prototype.off = NodeList.prototype.removeEventListener = function (name, fn) {
+    this.forEach(function (elem) {
+        elem.off(name, fn)
+    })
+}
+
+/* END bling.js */
 
 Object.prototype.pipe = function (fn) {
     return fn(this)
 }
-
-/* END bling.js */

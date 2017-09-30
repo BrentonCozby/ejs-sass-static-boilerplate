@@ -2,9 +2,9 @@ import swPrecache from 'sw-precache'
 import { Dir, SITE_NAME } from '../config.js'
 import { resolve } from 'path'
 
-swPrecache.write(resolve(Dir.dist, `service-worker.js`), {
+swPrecache.write(resolve(Dir.dist, 'service-worker.js'), {
     cacheId: SITE_NAME,
-    filename: `service-worker.js`,
+    filename: 'service-worker.js',
     stripPrefix: Dir.dist,
     staticFileGlobs: [
         `${Dir.dist}/**/*.{html,js,json,css,xml,txt,png,jpg,gif,svg,eot,ttf,woff}`
@@ -15,8 +15,6 @@ swPrecache.write(resolve(Dir.dist, `service-worker.js`), {
     skipWaiting: true
 }, (err) => {
     if (err) {
-        reject(err);
-    } else {
-        resolve();
+        throw new Error(err)
     }
-});
+})

@@ -11,7 +11,7 @@ const defaultOptions = {
 export default function transformFiles(
     sourcePath = '',
     options = defaultOptions,
-    fileTransformer = function({filename, sourcePath, destinationPath}) {}
+    fileTransformer = function() {}
 ) {
     validateArgs()
 
@@ -32,13 +32,13 @@ export default function transformFiles(
 
     function validateArgs() {
         if (!path.isAbsolute(sourcePath)) {
-            throw new Error(`sourcePath argument must be an absolute path.\n`)
+            throw new Error('sourcePath argument must be an absolute path.\n')
         }
         if (options.destination && !path.isAbsolute(options.destination)) {
-            throw new Error(`options.desintation must be an absolute path.\n`)
+            throw new Error('options.desintation must be an absolute path.\n')
         }
         if (options.flatten && typeof options.flatten !== 'boolean') {
-            throw new TypeError(`options.flatten must be a boolean value.\n`)
+            throw new TypeError('options.flatten must be a boolean value.\n')
         }
         for (let optionName in options) {
             if (optionName in defaultOptions === false) {

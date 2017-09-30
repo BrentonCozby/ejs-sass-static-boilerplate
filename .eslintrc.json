@@ -1,0 +1,49 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true,
+        "shared-node-browser": true,
+        "serviceworker": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "no-console": "off",
+        "no-fallthrough": "off"
+    },
+    "globals": {
+        "NODE_ENV": false,
+        "PP": false,
+        "SITE_TITLE": false,
+        "SITE_NAME": false,
+        "DESCRIPTION": false,
+        "SITE_URL": false,
+        "SITE_IMAGE": false,
+        "DEVELOPER_NAME": false,
+        "DEVELOPER_URL": false,
+        "GOOGLE_ANALYTICS_ID": false,
+        "DEV_PATH": false,
+        "$": false,
+        "libs": false
+    }
+}

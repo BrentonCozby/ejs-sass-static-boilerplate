@@ -9,7 +9,7 @@ const selectors = [
 let animElements = []
 
 const supportPageOffset = (pageXOffset !== undefined)
-const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat")
+const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat')
 const windowScroll = function() {
     return supportPageOffset ? pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
 }
