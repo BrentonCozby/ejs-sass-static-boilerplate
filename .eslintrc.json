@@ -28,7 +28,6 @@
             "error",
             "never"
         ],
-        "no-console": "off",
         "no-fallthrough": "off"
     },
     "globals": {
