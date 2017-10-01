@@ -1,10 +1,10 @@
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 <% if(filenameMap) { %>
-<script src="<%= PP %>/js/<%= filenameMap['common.js'] %>"></script>
-<script src="<%= PP %>/js/<%= filenameMap['bundle.js'] %>"></script>
+<script src="<%= PP %>js/<%= filenameMap['common.js'] %>"></script>
+<script src="<%= PP %>js/<%= filenameMap['bundle.js'] %>"></script>
 <% } else { %>
-<script src="<%= PP %>/js/common.js"></script>
-<script src="<%= PP %>/js/bundle.js"></script>
+<script src="<%= PP %>js/common.js"></script>
+<script src="<%= PP %>js/bundle.js"></script>
 <% } %>
 
 <% if(NODE_ENV === 'production') { %>
@@ -16,7 +16,7 @@
 
     if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || isLocalhost)) {
         window.addEventListener('load', function() {
-            navigator.serviceWorker.register('<%= PP %>/service-worker.js')
+            navigator.serviceWorker.register('<%= PP %>service-worker.js')
             .then(function(registration) {
                 // updatefound is fired if service-worker.js changes.
                 registration.onupdatefound = function() {

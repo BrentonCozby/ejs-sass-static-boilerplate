@@ -19,7 +19,7 @@ let offset = 150
 const _populateElements = function () {
     animElements = []
     selectors.forEach(selector => {
-        selector.forEach(element => {
+        selector && selector.forEach(element => {
             animElements.push({element,  position: null})
         })
     })

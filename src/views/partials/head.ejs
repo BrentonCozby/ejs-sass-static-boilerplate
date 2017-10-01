@@ -17,28 +17,28 @@
     <meta name="twitter:image:alt" content="<%= SITE_TITLE %>">
     <meta name="twitter:site" content="<%= SITE_URL %>">
     <meta name='author' content='<%= DEVELOPER_NAME %>. <%= DEVELOPER_URL %>'>
-    <link rel="shortcut icon" href="<%= PP %>/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<%= PP %>images/favicon.ico" type="image/x-icon">
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Vendor css files -->
-    <link rel="stylesheet" href="<%= PP %>/vendor/normalize.min.css">
-    <link rel="stylesheet" href="<%= PP %>/vendor/html5boilerplate.css">
-    <link rel="stylesheet" href="<%= PP %>/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<%= PP %>vendor/normalize.min.css">
+    <link rel="stylesheet" href="<%= PP %>vendor/html5boilerplate.css">
+    <link rel="stylesheet" href="<%= PP %>vendor/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- End vendor CSS files -->
 
 <% if(filenameMap) { %>
-    <link rel="stylesheet" href="<%= PP %>/css/<%= filenameMap['index.css'] %>">
-    <link rel="preload" href="<%= PP %>/js/<%= filenameMap['common.js'] %>" as="script">
-    <link rel="prefetch" href="<%= PP %>/js/<%= filenameMap['common.js'] %>">
-    <link rel="preload" href="<%= PP %>/js/<%= filenameMap['bundle.js'] %>" as="script">
-    <link rel="prefetch" href="<%= PP %>/js/<%= filenameMap['bundle.js'] %>">
+    <link rel="stylesheet" href="<%= PP %>css/<%= filenameMap['index.css'] %>">
+    <link rel="preload" href="<%= PP %>js/<%= filenameMap['common.js'] %>" as="script">
+    <link rel="prefetch" href="<%= PP %>js/<%= filenameMap['common.js'] %>">
+    <link rel="preload" href="<%= PP %>js/<%= filenameMap['bundle.js'] %>" as="script">
+    <link rel="prefetch" href="<%= PP %>js/<%= filenameMap['bundle.js'] %>">
 <% } else { %>
-    <link rel="stylesheet" href="<%= PP %>/css/index.css">
-    <link rel="preload" href="<%= PP %>/js/common.js" as="script">
-    <link rel="prefetch" href="<%= PP %>/js/common.js">
-    <link rel="preload" href="<%= PP %>/js/bundle.js" as="script">
-    <link rel="prefetch" href="<%= PP %>/js/bundle.js">
+    <link rel="stylesheet" href="<%= PP %>css/index.css">
+    <link rel="preload" href="<%= PP %>js/common.js" as="script">
+    <link rel="prefetch" href="<%= PP %>js/common.js">
+    <link rel="preload" href="<%= PP %>js/bundle.js" as="script">
+    <link rel="prefetch" href="<%= PP %>js/bundle.js">
 <% } %>
 </head>

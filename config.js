@@ -2,7 +2,11 @@ import { resolve } from 'path'
 
 // Use the following variables in src/views. They are made available in
 // build-tools/ejs-to-html.js in the 'transformer' function
-export const PP = '' // PP (public path) must NOT end with '/' but is allowed to start with '/' or '../', for example
+
+// PP (public path) must begin and end with '/' unless it is just '/'
+export const PP = process.env.NODE_ENV === 'production'
+    ? '/'
+    : '/'
 export const SITE_TITLE = 'Static Boilerplate EJS-SASS'
 export const SITE_NAME = 'ejs-sass-static-boilerplate'
 export const DESCRIPTION = 'Boilerplate for a Static website using EJS and SASS'
@@ -13,7 +17,7 @@ export const DEVELOPER_URL = 'https://brentoncozby.com'
 export const GOOGLE_ANALYTICS_ID = ''
 export const DEV_PATH = __dirname
 
-const Dir = {
+export const Dir = {
     dist: resolve(__dirname, 'dist'),
     src: resolve(__dirname, 'src'),
     css: resolve(__dirname, 'src', 'css'),
@@ -26,5 +30,3 @@ const Dir = {
     pages: resolve(__dirname, 'src', 'views', 'pages'),
     partials: resolve(__dirname, 'src', 'views', 'partials'),
 }
-
-export { Dir }

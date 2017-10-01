@@ -1,15 +1,15 @@
 import webpack from 'webpack'
-import { join, sep } from 'path'
+import { join } from 'path'
 import * as config from './config.js'
 
 export default {
     entry: {
-        bundle: [`.${sep}` + join('src', 'js', 'index.js')],
-        common: [`.${sep}` + join('src', 'js', 'common', 'index.js')]
+        bundle: ['./' + join('src', 'js', 'index.js')],
+        common: ['./' + join('src', 'js', 'common', 'index.js')]
     },
     output: {
-        filename: `.${sep}` + join('dist', 'js', '[name].js'),
-        publicPath: config.PUBLIC_PATH + sep
+        filename: './' + join('dist', 'js', '[name].js'),
+        publicPath: config.PP
     },
     module: {
         rules: [
