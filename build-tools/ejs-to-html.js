@@ -58,7 +58,7 @@ for (let i = 0; i < args.length; i++) {
     if(args[i] === '--watch') {
         // watch the entire views folder, including pages and partials
         fs.watch(Dir.views, { recursive: true }, function() {
-            transformFiles(Dir.pages, { dest: Dir.dist }, transformer)
+            transformFiles(Dir.pages, { destination: Dir.dist }, transformer)
             console.log('Compiled EJS to HTML')
         })
         break
