@@ -144,9 +144,10 @@
     align-items: flex-start;
 
     .split-box {
+        flex-basis: 100%;
 
         @media all and (min-width: 768px) {
-            width: 50%;
+            flex-basis: 50%;
         }
     }
 }
@@ -158,9 +159,10 @@
     align-items: flex-start;
 
     .split-box {
+        flex-basis: 100%;
 
         @media all and (min-width: 768px) {
-            width: 33%;
+            flex-basis: 33%;
         }
     }
 }
@@ -172,9 +174,10 @@
     align-items: flex-start;
 
     .split-box {
+        flex-basis: 100%;
 
         @media all and (min-width: 768px) {
-            width: 25%;
+            flex-basis: 25%;
         }
     }
 }
