@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import fs from 'fs'
 import { resolve } from 'path'
 import { Dir } from '../config.js'

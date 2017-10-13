@@ -20,6 +20,7 @@
         $ - querySelectorAll
 */
 
+// eslint-disable-next-line no-console
 console.log(`NODE_ENV: ${NODE_ENV}`)
 
 // import libraries from window.libs (src/js/common/index.js)

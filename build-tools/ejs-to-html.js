@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { resolve } from 'path'
 import fs from 'fs'
 import {

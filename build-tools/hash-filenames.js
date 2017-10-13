@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import fs from 'fs'
 import crypto from 'crypto'
 import { resolve } from 'path'
