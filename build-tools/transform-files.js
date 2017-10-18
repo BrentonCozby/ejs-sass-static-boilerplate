@@ -10,25 +10,19 @@ const defaultOptions = {
     flatten: false
 }
 
-export default function transformFiles(
-    sourcePath = '',
-    options = defaultOptions,
-    fileTransformer = function() {}
-) {
+function transformFiles(sourcePath, options = defaultOptions, fileTransformer) {
     validateArgs()
 
     if (!rootPath) rootPath = sourcePath
 
-    const dirContents = fs.readdirSync(sourcePath)
-
-    dirContents.forEach(fileOrDirName => {
+    fs.readdirSync(sourcePath).forEach(fileOrDirName => {
         const fileOrDirPath = path.resolve(sourcePath, fileOrDirName)
         const destinationPath = setDestinationPath(sourcePath, options)
 
         if (isDir(fileOrDirPath)) {
             transformFiles(fileOrDirPath, options, fileTransformer)
         } else {
-            transformThisFile(fileOrDirName, sourcePath, destinationPath, fileTransformer)
+            transformOneFile(fileOrDirName, sourcePath, destinationPath, fileTransformer)
         }
     })
 
@@ -48,8 +42,27 @@ export default function transformFiles(
             }
         }
     }
+    
+    function setDestinationPath(source, options) {
+        let destPath = source
+        
+        if (options.destination) {
+            if (options.flatten) {
+                destPath = options.destination
+            } else {
+                const relativePathFromRootPath = source.replace(rootPath, '').slice(1) // first char is '/'
+                destPath = path.resolve(options.destination, relativePathFromRootPath)
+            }
+        }
+        
+        return destPath
+    }
+    
+    function isDir(pathToFileOrDir) {
+        return fs.statSync(pathToFileOrDir).isDirectory()
+    }
 
-    function transformThisFile(filename, sourcePath, destinationPath, fileTransformer) {
+    function transformOneFile(filename, sourcePath, destinationPath, fileTransformer) {
         createDirsInPath(destinationPath)
 
         fileTransformer({
@@ -57,23 +70,6 @@ export default function transformFiles(
             sourcePath,
             destinationPath
         })
-    }
-
-    function isDir(pathToFileOrDir) {
-        return fs.statSync(pathToFileOrDir).isDirectory()
-    }
-
-    function setDestinationPath(source, {destination, flatten}) {
-        let destPath = source
-        if (destination) {
-            if (flatten) {
-                destPath = options.destination
-            } else {
-                const relativePathFromRootPath = source.replace(rootPath, '').slice(1)
-                destPath = path.resolve(options.destination, relativePathFromRootPath)
-            }
-        }
-        return destPath
     }
 }
 
@@ -93,3 +89,5 @@ export function createDirsInPath(dirPath) {
         return path.resolve(dirPath, nextDir)
     }
 }
+
+export default transformFiles
