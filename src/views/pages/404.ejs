@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <%- include(`${partials}/head`, {pageTitle: 'Page Not Found'}); -%>
 
-    <body>
-        <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
+    <main role="main">
         <section>
             <div class="container">
                 <h1>Lost?</h1>
@@ -15,10 +16,11 @@
                     <a href="<%= PP %>">Home</a>.</p>
             </div>
         </section>
+    </main>
 
-        <%- include(`${partials}/footer`); -%>
-            <%- include(`${partials}/scripts`); -%>
-    </body>
+    <%- include(`${partials}/footer`); -%>
+    <%- include(`${partials}/scripts`); -%>
+</body>
 
 </html>
 <!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

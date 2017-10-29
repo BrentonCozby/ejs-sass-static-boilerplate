@@ -2,9 +2,11 @@
 <% if(filenameMap) { %>
 <script src="<%= PP %>js/<%= filenameMap['common.js'] %>"></script>
 <script src="<%= PP %>js/<%= filenameMap['bundle.js'] %>"></script>
+<link rel="stylesheet" href="<%= PP %>css/<%= filenameMap['print.css'] %>">
 <% } else { %>
 <script src="<%= PP %>js/common.js"></script>
 <script src="<%= PP %>js/bundle.js"></script>
+<link rel="stylesheet" href="<%= PP %>css/print.css">
 <% } %>
 
 <% if(NODE_ENV === 'production') { %>
