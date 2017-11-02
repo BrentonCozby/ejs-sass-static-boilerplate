@@ -12,6 +12,9 @@
         "sourceType": "module",
         "ecmaVersion": 8
     },
+    "plugins": [
+        "jsx-a11y"
+   ],
     "rules": {
         "indent": [
             "error",
