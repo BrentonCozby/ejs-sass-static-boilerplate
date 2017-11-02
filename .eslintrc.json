@@ -12,6 +12,10 @@
         "sourceType": "module",
         "ecmaVersion": 8
     },
+    "plugins": [
+        "html",
+        "import"
+    ],
     "rules": {
         "indent": [
             "error",
