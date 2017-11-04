@@ -1,13 +1,14 @@
-import transformFiles from './transform-files.js'
 import { resolve } from 'path'
 import fs from 'fs'
-import { Dir } from '../config.js'
+
+import transformFiles from './transform-files'
+import { Dir } from '../config'
 
 function setEncoding(filename) {
     let encoding = 'utf-8'
 
     switch (true) {
-        //image types
+        // image types
         case /\.jpeg$/.test(filename):
         case /\.jpg$/.test(filename):
         case /\.png$/.test(filename):
@@ -29,26 +30,32 @@ function setEncoding(filename) {
         case /\.woff$/.test(filename):
         case /\.woff2$/.test(filename):
             encoding = null
+
+        default:
     }
 
     return encoding
 }
 
-transformFiles(
-    Dir.static,
-    { destination: Dir.dist },
-    copyDir
-)
-
 function copyDir({ filename, sourcePath, destinationPath }) {
     const filePath = resolve(sourcePath, filename)
     const newFilePath = resolve(destinationPath, filename)
 
-    fs.readFile(filePath, setEncoding(filename), (err, fileContents) => {
-        if (err) throw new Error(err)
+    fs.readFile(filePath, setEncoding(filename), (readFileError, fileContents) => {
+        if (readFileError) {
+            throw Error(readFileError)
+        }
 
-        fs.writeFile(newFilePath, fileContents, err => {
-            if (err) throw new Error(err)
+        fs.writeFile(newFilePath, fileContents, (writeFileError) => {
+            if (writeFileError) {
+                throw Error(writeFileError)
+            }
         })
     })
 }
+
+transformFiles(
+    Dir.static,
+    { destination: Dir.dist },
+    copyDir,
+)

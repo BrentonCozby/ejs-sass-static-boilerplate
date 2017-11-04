@@ -3,49 +3,50 @@
 import fs from 'fs'
 import path from 'path'
 
-let rootPath = undefined
+let rootPath
 
 const defaultOptions = {
     destination: null,
-    flatten: false
+    flatten: false,
+}
+
+export function createDirsInPath(dirPath) {
+    dirPath
+        .split(path.sep)
+        .reduce((prevPath, nextDir) => {
+            if (!fs.existsSync(path.resolve(prevPath, nextDir))) {
+                fs.mkdirSync(path.resolve(prevPath, nextDir))
+            }
+            return path.resolve(prevPath, nextDir)
+        }, path.sep)
 }
 
 function transformFiles(sourcePath, options = defaultOptions, fileTransformer) {
-    validateArgs()
+    // validate params
+    if (!path.isAbsolute(sourcePath)) {
+        throw Error('sourcePath argument must be an absolute path.\n')
+    }
+
+    if (options.destination && !path.isAbsolute(options.destination)) {
+        throw Error('options.desintation must be an absolute path.\n')
+    }
+
+    if (options.flatten && typeof options.flatten !== 'boolean') {
+        throw TypeError('options.flatten must be a boolean value.\n')
+    }
+
+    Object.keys(options).forEach((optionName) => {
+        if (optionName in defaultOptions === false) {
+            throw Error(`'${optionName}' is not a valid option.\n`)
+        }
+    })
+    // end validate params
 
     if (!rootPath) rootPath = sourcePath
 
-    fs.readdirSync(sourcePath).forEach(fileOrDirName => {
-        const fileOrDirPath = path.resolve(sourcePath, fileOrDirName)
-        const destinationPath = setDestinationPath(sourcePath, options)
-
-        if (isDir(fileOrDirPath)) {
-            transformFiles(fileOrDirPath, options, fileTransformer)
-        } else {
-            transformOneFile(fileOrDirName, sourcePath, destinationPath, fileTransformer)
-        }
-    })
-
-    function validateArgs() {
-        if (!path.isAbsolute(sourcePath)) {
-            throw new Error('sourcePath argument must be an absolute path.\n')
-        }
-        if (options.destination && !path.isAbsolute(options.destination)) {
-            throw new Error('options.desintation must be an absolute path.\n')
-        }
-        if (options.flatten && typeof options.flatten !== 'boolean') {
-            throw new TypeError('options.flatten must be a boolean value.\n')
-        }
-        for (let optionName in options) {
-            if (optionName in defaultOptions === false) {
-                throw new Error(`'${optionName}' is not a valid option.\n`)
-            }
-        }
-    }
-    
-    function setDestinationPath(source, options) {
+    function setDestinationPath(source) {
         let destPath = source
-        
+
         if (options.destination) {
             if (options.flatten) {
                 destPath = options.destination
@@ -54,40 +55,34 @@ function transformFiles(sourcePath, options = defaultOptions, fileTransformer) {
                 destPath = path.resolve(options.destination, relativePathFromRootPath)
             }
         }
-        
+
         return destPath
     }
-    
+
     function isDir(pathToFileOrDir) {
         return fs.statSync(pathToFileOrDir).isDirectory()
     }
 
-    function transformOneFile(filename, sourcePath, destinationPath, fileTransformer) {
+    function transformOneFile(filename, destinationPath) {
         createDirsInPath(destinationPath)
 
         fileTransformer({
             filename,
             sourcePath,
-            destinationPath
+            destinationPath,
         })
     }
-}
 
-export function createDirsInPath(dirPath) {
-    forEachDirInPath(createDirIfDoesntExist)
+    fs.readdirSync(sourcePath).forEach((fileOrDirName) => {
+        const fileOrDirPath = path.resolve(sourcePath, fileOrDirName)
+        const destinationPath = setDestinationPath(sourcePath)
 
-    function forEachDirInPath(pathReducer) {
-        dirPath
-            .split(path.sep)
-            .reduce(pathReducer, path.sep)
-    }
-
-    function createDirIfDoesntExist(dirPath, nextDir) {
-        if (!fs.existsSync(path.resolve(dirPath, nextDir))) {
-            fs.mkdirSync(path.resolve(dirPath, nextDir))
+        if (isDir(fileOrDirPath)) {
+            transformFiles(fileOrDirPath, options, fileTransformer)
+        } else {
+            transformOneFile(fileOrDirName, destinationPath)
         }
-        return path.resolve(dirPath, nextDir)
-    }
+    })
 }
 
 export default transformFiles

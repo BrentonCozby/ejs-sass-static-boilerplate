@@ -1,36 +1,39 @@
 /* bling.js - https://gist.github.com/paulirish/12fb951a8b893a454b32 */
 
-window.$ = function(selector) {
-    let query = document.querySelectorAll(selector)
-    return (query.length <= 1)
-        ? query[0]
-        : query
+window.$ = (selector) => {
+    const query = document.querySelectorAll(selector)
+
+    return (query.length <= 1) ? query[0] : query
 }
 
-NodeList.prototype.__proto__ = Array.prototype
-
-Node.prototype.on = window.on = function (name, fn) {
+function singleNodeAddEventListener(name, fn) {
     this.addEventListener(name, fn)
 }
 
-Node.prototype.off = window.off = function (name, fn) {
+function singleNodeRemoveEventListener(name, fn) {
     this.removeEventListener(name, fn)
 }
 
-NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
-    this.forEach(function (elem) {
+Node.prototype.on = singleNodeAddEventListener
+window.on = singleNodeAddEventListener
+
+Node.prototype.off = singleNodeRemoveEventListener
+window.off = singleNodeRemoveEventListener
+
+function multipleNodesAddEventListener(name, fn) {
+    this.forEach((elem) => {
         elem.on(name, fn)
     })
 }
 
-NodeList.prototype.off = NodeList.prototype.removeEventListener = function (name, fn) {
-    this.forEach(function (elem) {
+function multipleNodesRemoveEventListener(name, fn) {
+    this.forEach((elem) => {
         elem.off(name, fn)
     })
 }
 
-/* END bling.js */
+NodeList.prototype.on = multipleNodesAddEventListener
 
-Object.prototype.pipe = function (fn) {
-    return fn(this)
-}
+NodeList.prototype.off = multipleNodesRemoveEventListener
+
+/* END bling.js */

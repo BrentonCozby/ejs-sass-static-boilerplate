@@ -1,4 +1,4 @@
-/****************************************************
+/*
  *
  * All the code in this file will be bundled into a
  * 'common.js' file. By separating code that won't
@@ -7,7 +7,7 @@
  * cached (as long as no changes were made to it),
  * allowing for faster repeat page load speeds.
  *
- ****************************************************/
+ */
 
 window.libs = {}
 // Import the following libraries in other files like this:

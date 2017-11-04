@@ -3,15 +3,15 @@
 import fs from 'fs'
 import crypto from 'crypto'
 import { resolve } from 'path'
-import { Dir, DEV_PATH } from '../config.js'
-import transformFiles from './transform-files.js'
+import { Dir, DEV_PATH } from '../config'
+import transformFiles from './transform-files'
 
 const dirs = [
     resolve(Dir.dist, 'js'),
-    resolve(Dir.dist, 'css')
+    resolve(Dir.dist, 'css'),
 ]
 
-let mapData = {}
+const mapData = {}
 
 function transformer({ filename, sourcePath, destinationPath }) {
     const oldFilePath = resolve(sourcePath, filename)
@@ -20,7 +20,7 @@ function transformer({ filename, sourcePath, destinationPath }) {
 
     const hash = crypto.createHash('md5').update(fileContents).digest('hex')
 
-    if(filename.indexOf(hash) !== -1) {
+    if (filename.indexOf(hash) !== -1) {
         console.log(`${filename} is unchanged.`)
 
         const str = filename.split('.')
@@ -28,11 +28,12 @@ function transformer({ filename, sourcePath, destinationPath }) {
         const baseFilename = str.join('.')
 
         mapData[baseFilename] = filename
-        return false
+
+        return
     }
 
     const str = filename.split('')
-    str.splice(filename.lastIndexOf('.'), 0, '.' + hash)
+    str.splice(filename.lastIndexOf('.'), 0, `.${hash}`)
     const filenameHashed = str.join('')
     const newFilePath = resolve(destinationPath, filenameHashed)
 
@@ -44,11 +45,13 @@ function transformer({ filename, sourcePath, destinationPath }) {
 }
 
 function hashFilenames(directories) {
-    if(!Dir.dist) return false
+    if (!Dir.dist) {
+        return
+    }
 
     console.log('Hashing filenames...\n')
 
-    directories.forEach(dir => {
+    directories.forEach((dir) => {
         transformFiles(dir, {}, transformer)
     })
 

@@ -1,17 +1,23 @@
 /* eslint-disable no-console */
-
 import fs from 'fs'
 import { resolve } from 'path'
-import { Dir } from '../config.js'
-import transformFiles from './transform-files.js'
-import { minify } from 'html-minifier'
+import { minify } from 'html-minifier' // eslint-disable-line import/no-extraneous-dependencies
+
+import { Dir } from '../config'
+import transformFiles from './transform-files'
 
 transformFiles(resolve(Dir.dist), {}, ({ filename, sourcePath, destinationPath }) => {
     const filePath = resolve(sourcePath, filename)
 
-    if(/\.html$/.test(filename) === false) return false
+    if (/\.html$/.test(filename) === false) {
+        return
+    }
 
-    fs.readFile(filePath, 'utf-8', (err, html) => {
+    fs.readFile(filePath, 'utf-8', (readFileError, html) => {
+        if (readFileError) {
+            throw Error(readFileError)
+        }
+
         const minified = minify(html, {
             removeAttributeQuotes: true,
             caseSensitive: true,
@@ -21,13 +27,13 @@ transformFiles(resolve(Dir.dist), {}, ({ filename, sourcePath, destinationPath }
             minifyCSS: true,
             minifyJS: true,
             minifyURLs: true,
-            removeRedundantAttributes: true
+            removeRedundantAttributes: true,
         })
 
-        fs.writeFile(resolve(destinationPath, filename), minified, err => {
-            if(err) return console.log(err)
+        fs.writeFile(resolve(destinationPath, filename), minified, (writeFileError) => {
+            if (writeFileError) {
+                throw Error(writeFileError)
+            }
         })
     })
-
-
 })

@@ -1,15 +1,15 @@
 import webpack from 'webpack'
 import { join } from 'path'
-import * as config from './config.js'
+import * as config from './config'
 
 export default {
     entry: {
-        bundle: ['./' + join('src', 'js', 'index.js')],
-        common: ['./' + join('src', 'js', 'common', 'index.js')]
+        bundle: [`./${join('src', 'js', 'index.js')}`],
+        common: [`./${join('src', 'js', 'common', 'index.js')}`],
     },
     output: {
-        filename: './' + join('dist', 'js', '[name].js'),
-        publicPath: config.PP
+        filename: `./${join('dist', 'js', '[name].js')}`,
+        publicPath: config.PP,
     },
     module: {
         rules: [
@@ -20,13 +20,13 @@ export default {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            ['env', {modules: false}],
-                            'stage-0'
-                        ]
-                    }
-                }]
-            }
-        ]
+                            ['env', { modules: false }],
+                            'stage-0',
+                        ],
+                    },
+                }],
+            },
+        ],
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -38,7 +38,7 @@ export default {
             SITE_URL: JSON.stringify(config.SITE_URL),
             SITE_IMAGE: JSON.stringify(config.SITE_IMAGE),
             DEVELOPER_NAME: JSON.stringify(config.DEVELOPER_NAME),
-            DEVELOPER_URL: JSON.stringify(config.DEVELOPER_URL)
-        })
-    ]
+            DEVELOPER_URL: JSON.stringify(config.DEVELOPER_URL),
+        }),
+    ],
 }
