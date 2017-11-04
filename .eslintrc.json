@@ -7,11 +7,15 @@
         "shared-node-browser": true,
         "serviceworker": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb",
     "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 8
     },
+    "plugins": [
+        "html",
+        "import"
+    ],
     "rules": {
         "indent": [
             "error",
