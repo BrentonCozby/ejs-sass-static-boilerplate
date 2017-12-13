@@ -15,6 +15,7 @@ window.libs = {}
 //      const { sanitizeHTML } = libs
 //
 libs.sanitizeHTML = require('sanitize-html')
+libs.throttle = require('lodash.throttle')
 
 // Dump static code here
 require('./helpers.js')

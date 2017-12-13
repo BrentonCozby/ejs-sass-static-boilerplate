@@ -8,22 +8,19 @@ let animElements = []
 let windowHeight = null
 let lastWindowScrollY = 0
 let offset = 150
-let isAnimating = false
 
-const getWindowScrollY = (() => {
-    const supportPageOffset = (window.pageXOffset !== undefined)
-    const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat')
+const supportPageOffset = (window.pageXOffset !== undefined)
+const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat')
 
-    return () => {
-        if (supportPageOffset) {
-            return window.pageYOffset
-        } else if (isCSS1Compat) {
-            return document.documentElement.scrollTop
-        }
-
-        return document.body.scrollTop
+const getWindowScrollY = () => {
+    if (supportPageOffset) {
+        return window.pageYOffset
+    } else if (isCSS1Compat) {
+        return document.documentElement.scrollTop
     }
-})()
+
+    return document.body.scrollTop
+}
 
 function getPositions() {
     animElements = []
@@ -49,22 +46,12 @@ function playAnimations() {
             el.element.classList.remove('scroll-visible')
         }
     })
-
-    isAnimating = false
-}
-
-function requestPlayAnimations() {
-    if (!isAnimating) {
-        requestAnimationFrame(playAnimations)
-    }
-
-    isAnimating = true
 }
 
 function onScroll() {
     lastWindowScrollY = getWindowScrollY()
 
-    requestPlayAnimations()
+    playAnimations()
 }
 
 function showItemsInView() {
@@ -72,7 +59,7 @@ function showItemsInView() {
     offset = windowHeight * 0.1
     lastWindowScrollY = getWindowScrollY()
     getPositions()
-    requestPlayAnimations()
+    playAnimations()
 }
 
 window.on('load', () => {
@@ -85,7 +72,7 @@ window.on('load', () => {
     // re-initialize every 2 seconds in case of page resizing
     setInterval(() => {
         showItemsInView()
-    }, 2000)
+    }, 500)
 
-    document.on('scroll', onScroll)
+    document.on('scroll', libs.throttle(onScroll, 50, { leading: true }))
 })
