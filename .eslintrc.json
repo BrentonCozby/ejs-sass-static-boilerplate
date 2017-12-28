@@ -34,7 +34,8 @@
             "error",
             "never"
         ],
-        "no-fallthrough": "off"
+        "no-fallthrough": "off",
+        "arrow-parens": "off"
     },
     "globals": {
         "NODE_ENV": false,
