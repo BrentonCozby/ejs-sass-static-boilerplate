@@ -1,4 +1,5 @@
 dist
+filename-map.json
 *.env
 .DS_Store
 

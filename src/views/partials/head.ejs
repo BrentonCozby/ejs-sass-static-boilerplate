@@ -38,12 +38,14 @@
 
 <% if(filenameMap) { %>
     <link rel="stylesheet" href="<%= PP %>css/<%= filenameMap['index.css'] %>">
+    <link rel="stylesheet" href="<%= PP %>css/<%= filenameMap['print.css'] %>">
     <link rel="preload" href="<%= PP %>js/<%= filenameMap['common.js'] %>" as="script">
     <link rel="prefetch" href="<%= PP %>js/<%= filenameMap['common.js'] %>">
     <link rel="preload" href="<%= PP %>js/<%= filenameMap['bundle.js'] %>" as="script">
     <link rel="prefetch" href="<%= PP %>js/<%= filenameMap['bundle.js'] %>">
 <% } else { %>
     <link rel="stylesheet" href="<%= PP %>css/index.css">
+    <link rel="stylesheet" href="<%= PP %>css/print.css">
     <link rel="preload" href="<%= PP %>js/common.js" as="script">
     <link rel="prefetch" href="<%= PP %>js/common.js">
     <link rel="preload" href="<%= PP %>js/bundle.js" as="script">
