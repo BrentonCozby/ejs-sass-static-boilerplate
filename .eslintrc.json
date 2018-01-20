@@ -2,18 +2,14 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true,
-        "node": true,
-        "shared-node-browser": true,
-        "serviceworker": true
+        "es6": true
     },
-    "extends": "airbnb",
+    "extends": "airbnb-base",
     "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 8
     },
     "plugins": [
-        "html",
         "import"
     ],
     "rules": {
@@ -36,7 +32,10 @@
         ],
         "no-fallthrough": "off",
         "arrow-parens": "off",
-        "consistent-return": "off"
+        "consistent-return": "off",
+        "func-names": "off",
+        "no-underscore-dangle": "off",
+        "arrow-body-style": "off"
     },
     "globals": {
         "NODE_ENV": false,
