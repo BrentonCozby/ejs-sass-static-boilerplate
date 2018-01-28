@@ -1,4 +1,5 @@
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js" type="text/javascript"></script>
+
 <% if(filenameMap) { %>
 <script type="text/javascript" src="<%= PP %>js/<%= filenameMap['common.js'] %>"></script>
 <script type="text/javascript" src="<%= PP %>js/<%= filenameMap['bundle.js'] %>"></script>
@@ -9,64 +10,10 @@
 <link rel="stylesheet" href="<%= PP %>css/print.css">
 <% } %>
 
-<% if(NODE_ENV === 'production') { %>
-<script type="text/javascript">
-    var isLocalhost = Boolean(window.location.hostname === 'localhost'
-        || window.location.hostname === '[::1]'
-        || window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
-    )
-
-    if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || isLocalhost)) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('<%= PP %>service-worker.js')
-            .then(function(registration) {
-                // updatefound is fired if service-worker.js changes.
-                registration.onupdatefound = function() {
-                    // updatefound is also fired the very first time the SW is installed,
-                    // and there's no need to prompt for a reload at that point.
-                    // So check here to see if the page is already controlled,
-                    // i.e. whether there's an existing service worker.
-                    var installingWorker = registration.installing;
-
-                    installingWorker.onstatechange = function() {
-                        switch (installingWorker.state) {
-                            case 'installed':
-                                if (navigator.serviceWorker.controller) {
-                                    // At this point, the old content will have been purged and the
-                                    // fresh content will have been added to the cache.
-                                    // It's the perfect time to display a "New content is
-                                    // available; please refresh." message in the page's interface.
-                                    console.log('New or updated content is available from service worker. Please refresh to receive new content.')
-                                } else {
-                                    // At this point, everything has been precached.
-                                    // It's the perfect time to display a "Content is cached for offline use." message.
-                                    console.log('Service worker sucessfully registered. Content is now available offline!');
-                                }
-                                break;
-
-                            case 'redundant':
-                                console.error('The installing service worker became redundant.')
-                                break;
-                        }
-                    }
-                }
-            })
-            .catch(function(e) {
-                console.error('Error during service worker registration:', e);
-            })
-        })
-    }
-</script>
-<% } %>
-
 <% if(GOOGLE_ANALYTICS_ID) { %>
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='https://www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','<%= GOOGLE_ANALYTICS_ID %>','auto');ga('send','pageview');
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','<%= GOOGLE_ANALYTICS_ID %>','auto');ga('send','pageview')
 </script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
 <% } %>
