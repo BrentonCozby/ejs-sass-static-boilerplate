@@ -25,3 +25,13 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     font-weight: normal;
 }
+
+.lazyload,
+.lazyloading {
+    opacity: 0;
+}
+
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 300ms;
+}

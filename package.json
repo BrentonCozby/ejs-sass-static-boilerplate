@@ -5,18 +5,18 @@
     "main": "index.js",
     "scripts": {
         "start": "browser-sync start --server 'dist' --files 'dist' --no-open --no-notify --reload-debounce 100",
-        "setup-for-dev": "npm-run-all --sequential rmprod copy-to-dist build:html",
-        "dev": "NODE_ENV=development npm-run-all --parallel start watch:*",
+        "dev": "NODE_ENV=development yarn setup-for-dev && npm-run-all --parallel start watch:*",
         "prod": "NODE_ENV=production npm-run-all --sequential rmprod copy-to-dist minify:js minify:css prepend-banner hash-filenames minify:html purge:css",
+        "setup-for-dev": "npm-run-all --sequential rmprod copy-to-dist build:html",
         "build:html": "NODE_ENV=production babel-node build-tools/ejs-to-html.js",
         "build:js": "webpack --debug",
-        "build:css": "npm run sass && npm run autoprefixer",
+        "build:css": "yarn sass && yarn autoprefixer",
         "watch:html": "NODE_ENV=development babel-node build-tools/ejs-to-html.js --watch",
         "watch:js": "webpack --watch --debug --display minimal",
-        "watch:css": "npm run sass && node-sass src/css --output dist/css --source-map true --watch --recursive --quiet",
-        "minify:html": "npm run build:html && babel-node build-tools/minify-html.js",
+        "watch:css": "yarn sass && node-sass src/css --output dist/css --source-map true --watch --recursive --quiet",
+        "minify:html": "yarn build:html && babel-node build-tools/minify-html.js",
         "minify:js": "webpack -p",
-        "minify:css": "npm run build:css && babel-node build-tools/minify-css.js",
+        "minify:css": "yarn build:css && babel-node build-tools/minify-css.js",
         "purge:css": "purgecss --css dist/css/*.css --out dist/css/ --content dist/**/*.html dist/js/**/*.js",
         "sass": "node-sass src/css -o dist/css --source-map-embed true",
         "autoprefixer": "postcss dist/css/**/*.css --use autoprefixer -r",
@@ -52,6 +52,7 @@
     "dependencies": {
         "lazysizes": "^4.0.1",
         "lodash.throttle": "^4.1.1",
+        "picturefill": "^3.0.2",
         "sanitize-html": "^1.16.3"
     },
     "repository": {

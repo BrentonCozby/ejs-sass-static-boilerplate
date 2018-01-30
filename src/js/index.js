@@ -28,6 +28,8 @@
 
 import sanitizeHTML from 'sanitize-html'
 
+import 'picturefill'
+import 'lazysizes'
 import './helpers'
 import './errors'
 import './scroll-animations'

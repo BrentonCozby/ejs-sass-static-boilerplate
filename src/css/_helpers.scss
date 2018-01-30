@@ -76,6 +76,10 @@
     transform: translateY($offset);
     transition-timing-function: ease-out;
 
+    &.lazyloaded {
+        opacity: 0;
+    }
+
     &.scroll-visible {
         transition: all $speed;
         transform: translateY(0);
