@@ -33,20 +33,14 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js" type="text/javascript"></script>
     <![endif]-->
 
-    <!-- Vendor css files -->
-    <link rel="stylesheet" href="<%= PP %>vendor/html5boilerplate.css">
-    <!-- End vendor CSS files -->
-
 <% if(filenameMap) { %>
     <link rel="stylesheet" href="<%= PP %>css/<%= filenameMap['index.css'] %>">
-    <link rel="stylesheet" href="<%= PP %>css/<%= filenameMap['print.css'] %>">
     <link rel="preload" href="<%= PP %>js/<%= filenameMap['vendor.js'] %>" as="script">
     <link rel="prefetch" href="<%= PP %>js/<%= filenameMap['vendor.js'] %>">
     <link rel="preload" href="<%= PP %>js/<%= filenameMap['bundle.js'] %>" as="script">
     <link rel="prefetch" href="<%= PP %>js/<%= filenameMap['bundle.js'] %>">
 <% } else { %>
     <link rel="stylesheet" href="<%= PP %>css/index.css">
-    <link rel="stylesheet" href="<%= PP %>css/print.css">
     <link rel="preload" href="<%= PP %>js/vendor.js" as="script">
     <link rel="prefetch" href="<%= PP %>js/vendor.js">
     <link rel="preload" href="<%= PP %>js/bundle.js" as="script">
