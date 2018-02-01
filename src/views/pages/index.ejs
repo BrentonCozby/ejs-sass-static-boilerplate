@@ -6,11 +6,11 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header role="banner">
-        <nav role="navigation"></nav>
+    <header>
+        <nav></nav>
     </header>
 
-    <main role="main">
+    <main>
         <section class="top">
             <div class="container">
                 <h1>Cello, World! <i class="fa fa-bath" aria-hidden="true"></i></h1>
@@ -19,8 +19,8 @@
                 <p>Go to <a href="<%= PP %>users/brian">Brian's Page</a>.</p>
                 <p><b>Date: </b><%= (new Date).toDateString() %><span id="time"></span></p>
                 <p><b>NODE_ENV:</b> <%= NODE_ENV %></p>
-                <form action="" id="main-form">
-                    <label for=""><b>Message:</b></label>
+                <form id="main-form">
+                    <label><b>Message:</b></label>
                     <br>
                     <textarea name="message" rows="4" cols="58">Hello!<script>alert('XSS attack!')</script> I'm a hacker</textarea>
                     <br>

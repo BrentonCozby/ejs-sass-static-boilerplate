@@ -1,29 +1,33 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= SITE_TITLE %> | <%= pageTitle %></title>
-    <meta name="description" content="<%= DESCRIPTION %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title><%= SITE_TITLE %> | <%= pageTitle %></title> <!-- 55 character limit -->
+    <link rel="canonical" href="<%= SITE_URL %>">
+    <meta name="description" content="<%= DESCRIPTION %>"> <!-- 150 character limit -->
     <meta property="og:url" content="<%= SITE_URL %>">
     <meta property="og:site_name" content="<%= SITE_TITLE %>">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta property="og:title" content="<%= SITE_TITLE %>">
     <meta property="og:description" content="<%= DESCRIPTION %>">
-    <meta property="og:image" content="<%= SITE_IMAGE %>">
+    <meta property="og:image" content="<%= CARD_IMAGE %>"> <!-- generate image at https://realfavicongenerator.net/social/ -->
     <meta name="googlebot" content="noarchive">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="<%= SITE_TITLE %>">
     <meta name="twitter:description" content="<%= DESCRIPTION %>">
-    <meta name="twitter:image" content="<%= SITE_IMAGE %>">
+    <meta name="twitter:image" content="<%= CARD_IMAGE %>"> <!-- generate image at https://realfavicongenerator.net/social/ -->
     <meta name="twitter:image:alt" content="<%= SITE_TITLE %>">
     <meta name="twitter:site" content="<%= SITE_URL %>">
     <meta name='author' content='<%= DEVELOPER_NAME %>. <%= DEVELOPER_URL %>'>
-    <link rel="canonical" href="<%= SITE_URL %>">
 
-    <!-- icons -->
-    <link rel="shortcut icon" href="<%= PP %>images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/b-icon.png">
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= PP %>apple-touch-icon.png">
+    <link rel="icon" type="image<%= PP %>png" sizes="32x32" href="<%= PP %>favicon-32x32.png">
+    <link rel="icon" type="image<%= PP %>png" sizes="16x16" href="<%= PP %>favicon-16x16.png">
+    <link rel="manifest" href="<%= PP %>manifest.json">
+    <link rel="mask-icon" href="<%= PP %>safari-pinned-tab.svg" color="#2b5797">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -46,4 +50,6 @@
     <link rel="preload" href="<%= PP %>js/bundle.js" as="script">
     <link rel="prefetch" href="<%= PP %>js/bundle.js">
 <% } %>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>

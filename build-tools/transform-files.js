@@ -3,8 +3,6 @@
 import fs from 'fs'
 import path from 'path'
 
-let rootPath
-
 const defaultOptions = {
     destination: null,
     flatten: false,
@@ -21,7 +19,7 @@ export function createDirsInPath(dirPath) {
         }, path.sep)
 }
 
-function transformFiles(sourcePath, options = defaultOptions, fileTransformer) {
+function transformFiles(sourcePath, options = defaultOptions, fileTransformer, rootPath) {
     // validate params
     if (!path.isAbsolute(sourcePath)) {
         throw Error('sourcePath argument must be an absolute path.\n')
@@ -42,7 +40,7 @@ function transformFiles(sourcePath, options = defaultOptions, fileTransformer) {
     })
     // end validate params
 
-    if (!rootPath) rootPath = sourcePath
+    if (!rootPath) rootPath = sourcePath // eslint-disable-line no-param-reassign
 
     function setDestinationPath(source) {
         let destPath = source
@@ -78,7 +76,7 @@ function transformFiles(sourcePath, options = defaultOptions, fileTransformer) {
         const destinationPath = setDestinationPath(sourcePath)
 
         if (isDir(fileOrDirPath)) {
-            transformFiles(fileOrDirPath, options, fileTransformer)
+            transformFiles(fileOrDirPath, options, fileTransformer, rootPath)
         } else {
             transformOneFile(fileOrDirName, destinationPath)
         }

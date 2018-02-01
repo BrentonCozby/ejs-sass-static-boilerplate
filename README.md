@@ -22,6 +22,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 * Some SASS helper classes are available in `src/css/_helpers.scss`
 * Add the class 'appear' to any html element to give it a fade-in/fade-out effect when it scrolls into/out-of view
 * Set Google Analytics ID in `config.js`
+* Favicons: go to https://realfavicongenerator.net/ and put the generated favicons into `src/favicons`
 
 ## DEVELOPMENT
 

@@ -54,8 +54,16 @@ function copyDir({ filename, sourcePath, destinationPath }) {
     })
 }
 
+// static --> dist
 transformFiles(
     Dir.static,
+    { destination: Dir.dist },
+    copyDir,
+)
+
+// favicons --> dist
+transformFiles(
+    Dir.favicons,
     { destination: Dir.dist },
     copyDir,
 )

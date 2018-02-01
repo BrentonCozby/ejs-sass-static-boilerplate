@@ -7,14 +7,13 @@ import ejs from 'ejs' // eslint-disable-line import/no-extraneous-dependencies
 import {
     Dir,
     PP,
-    DEV_PATH,
     SITE_TITLE,
     SITE_URL,
-    SITE_IMAGE,
     DESCRIPTION,
     DEVELOPER_NAME,
     DEVELOPER_URL,
     GOOGLE_ANALYTICS_ID,
+    DEV_PATH,
 } from '../config'
 import transformFiles from './transform-files'
 
@@ -35,11 +34,11 @@ function transformer({ filename, sourcePath, destinationPath }) {
         PP,
         SITE_TITLE,
         SITE_URL,
-        SITE_IMAGE,
         DESCRIPTION,
         DEVELOPER_NAME,
         DEVELOPER_URL,
         GOOGLE_ANALYTICS_ID,
+        CARD_IMAGE: '',
         NODE_ENV: process.env.NODE_ENV,
         filenameMap,
     })

@@ -1,38 +1,18 @@
 /** Variables available in all js files:
- * NODE_ENV
- * PP
- * SITE_TITLE
- * SITE_NAME
- * DESCRIPTION
- * SITE_URL
- * SITE_IMAGE
- * DEVELOPER_NAME
- * DEVELOPER_URL
- * GOOGLE_ANALYTICS_ID
- * DEV_PATH
+ * all the exported constants from config.js
 */
 
 /** Directories available as aliases
- * dist
- * src
- * css
- * js
- * static
- * images
- * videos
- * vendor
- * views
- * pages
- * partials
+ * all the paths within Dir in config.js
 */
 
 import sanitizeHTML from 'sanitize-html'
 
 import 'picturefill'
 import 'lazysizes'
-import './helpers'
-import './errors'
-import './scroll-animations'
+import './utils/helpers'
+import './utils/errors'
+import './utils/scroll-animations'
 
 // eslint-disable-next-line no-console
 console.log(`NODE_ENV: ${NODE_ENV}`)
