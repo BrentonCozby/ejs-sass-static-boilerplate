@@ -29,7 +29,6 @@ if (mainForm) {
     mainForm.on('submit', (e) => {
         e.preventDefault()
 
-        $('#submitted-message')
-            .innerHTML = `<b>Sanitized Message</b>: ${sanitizeHTML(mainForm.message.value)}`
+        $('#submitted-message').innerHTML = `<b>Sanitized Message</b>: ${sanitizeHTML(mainForm.message.value)}`
     })
 }
