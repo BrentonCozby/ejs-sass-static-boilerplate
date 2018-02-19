@@ -43,6 +43,7 @@ function getPositions() {
 function playAnimations() {
     animElements.forEach((el) => {
         const triggerPoint = Number(el.position) + Number(-windowHeight) + Number(offset)
+
         if (lastWindowScrollY > triggerPoint) {
             el.element.classList.add('scroll-visible')
         } else {
@@ -63,7 +64,7 @@ function ready(fn) {
     if (document.attachEvent ? document.readyState === 'complete' : document.readyState !== 'loading') {
         fn()
     } else {
-        document.addEventListener('DOMContentLoaded', fn)
+        document.on('DOMContentLoaded', fn)
     }
 }
 
