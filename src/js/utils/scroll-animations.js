@@ -1,3 +1,4 @@
+import debounce from 'lodash.debounce'
 import throttle from 'lodash.throttle'
 
 // Add selectors here and they will all have the class 'scroll-visible'
@@ -50,12 +51,6 @@ function playAnimations() {
     })
 }
 
-function onScroll() {
-    lastWindowScrollY = getWindowScrollY()
-
-    playAnimations()
-}
-
 function showItemsInView() {
     windowHeight = window.innerHeight
     offset = windowHeight * 0.1
@@ -64,17 +59,25 @@ function showItemsInView() {
     playAnimations()
 }
 
-window.on('load', () => {
-    // make sure items in view when page loads become visible
-    setTimeout(showItemsInView, 300)
-    setTimeout(showItemsInView, 600)
-    setTimeout(showItemsInView, 900)
-    setTimeout(showItemsInView, 1200)
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === 'complete' : document.readyState !== 'loading') {
+        fn()
+    } else {
+        document.addEventListener('DOMContentLoaded', fn)
+    }
+}
 
-    // re-initialize every 2 seconds in case of page resizing
-    setInterval(() => {
+ready(() => {
+    // make sure items that are in view when page loads become visible
+    setTimeout(showItemsInView, 1000)
+
+    document.on('resize', debounce(() => {
         showItemsInView()
-    }, 500)
+    }, 100))
 
-    document.on('scroll', throttle(onScroll, 50, { leading: true }))
+    document.on('scroll', throttle(() => {
+        lastWindowScrollY = getWindowScrollY()
+
+        playAnimations()
+    }, 100, { leading: true }))
 })

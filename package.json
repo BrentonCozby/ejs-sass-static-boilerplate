@@ -52,6 +52,7 @@
     },
     "dependencies": {
         "lazysizes": "^4.0.1",
+        "lodash.debounce": "^4.0.8",
         "lodash.throttle": "^4.1.1",
         "picturefill": "^3.0.2",
         "sanitize-html": "^1.16.3"
