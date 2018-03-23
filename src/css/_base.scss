@@ -33,5 +33,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .lazyloaded {
     opacity: 1;
-    transition: opacity 300ms;
+    // this transition needs to match the transition in @mixin appear in _helpers.scss
+    transition: opacity 300ms, transform 10000ms;
 }

@@ -70,7 +70,9 @@ function ready(fn) {
 
 ready(() => {
     // make sure items that are in view when page loads become visible
-    setTimeout(showItemsInView, 1000)
+    showItemsInView()
+
+    setInterval(showItemsInView, 2000)
 
     document.on('resize', debounce(() => {
         showItemsInView()
