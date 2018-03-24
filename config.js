@@ -1,23 +1,20 @@
-import { resolve } from 'path'
+const { resolve } = require('path')
 
 // Use the following variables in src/views. They are made available in
 // build-tools/ejs-to-html.js in the 'transformer' function
 
 // PP (public path) must begin and end with '/' unless it is just '/'
-export const PP = process.env.NODE_ENV === 'production'
-    ? '/'
-    : '/'
-export const SITE_TITLE = 'Static Boilerplate EJS-SASS'
-export const SITE_NAME = 'ejs-sass-static-boilerplate'
-export const DESCRIPTION = 'Boilerplate for a Static website using EJS and SASS'
-export const SITE_URL = 'example.com'
-export const DEVELOPER_NAME = 'Brenton Cozby'
-export const DEVELOPER_URL = 'https://brentoncozby.com'
-export const GOOGLE_ANALYTICS_ID = ''
+module.exports.PP = '/'
+module.exports.DEV_PATH = __dirname
+module.exports.SITE_TITLE = 'Static Boilerplate EJS-SASS'
+module.exports.SITE_NAME = 'ejs-sass-static-boilerplate'
+module.exports.DESCRIPTION = 'Boilerplate for a Static website using EJS and SASS'
+module.exports.SITE_URL = 'example.com'
+module.exports.DEVELOPER_NAME = 'Brenton Cozby'
+module.exports.DEVELOPER_URL = 'https://brentoncozby.com'
+module.exports.GOOGLE_ANALYTICS_ID = ''
 
-export const DEV_PATH = __dirname
-
-export const Dir = {
+module.exports.Dir = {
     dist: resolve(__dirname, 'dist'),
     src: resolve(__dirname, 'src'),
     css: resolve(__dirname, 'src', 'css'),
@@ -29,5 +26,5 @@ export const Dir = {
     vendor: resolve(__dirname, 'src', 'vendor'),
     views: resolve(__dirname, 'src', 'views'),
     pages: resolve(__dirname, 'src', 'views', 'pages'),
-    partials: resolve(__dirname, 'src', 'views', 'partials'),
+    partials: resolve(__dirname, 'src', 'views', 'partials')
 }

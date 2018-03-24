@@ -35,7 +35,9 @@
         "consistent-return": "off",
         "func-names": "off",
         "no-underscore-dangle": "off",
-        "arrow-body-style": "off"
+        "arrow-body-style": "off",
+        "comma-dangle": "off",
+        "padded-blocks": "off"
     },
     "globals": {
         "NODE_ENV": false,
