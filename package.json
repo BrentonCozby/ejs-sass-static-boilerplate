@@ -6,7 +6,7 @@
     "scripts": {
         "start": "browser-sync start --server 'dist' --files 'dist' --no-open --no-notify --reload-debounce 100",
         "dev": "cross-env NODE_ENV=development yarn setup-for-dev && npm-run-all --parallel start watch:*",
-        "build": "cross-env NODE_ENV=production npm-run-all --sequential rmprod copy-to-dist minify:js minify:css prepend-banner hash-filenames minify:html purge:css",
+        "build": "cross-env NODE_ENV=production npm-run-all --sequential rmprod copy-to-dist minify:js minify:css prepend-banner hash-filenames minify:html",
         "setup-for-dev": "npm-run-all --sequential rmprod copy-to-dist build:html",
         "build:html": "babel-node build-tools/ejs-to-html.js",
         "build:js": "cross-env NODE_ENV=development webpack --debug",
@@ -17,7 +17,6 @@
         "minify:html": "cross-env NODE_ENV=production yarn build:html && babel-node build-tools/minify-html.js",
         "minify:js": "cross-env NODE_ENV=production webpack -p",
         "minify:css": "yarn build:css && babel-node build-tools/minify-css.js",
-        "purge:css": "purgecss --css dist/css/*.css --out dist/css/ --content dist/**/*.html dist/js/**/*.js",
         "sass": "node-sass src/css -o dist/css --source-map-embed true",
         "autoprefixer": "postcss dist/css/**/*.css --use autoprefixer -r",
         "copy-to-dist": "babel-node build-tools/copy-to-dist.js",
@@ -46,7 +45,6 @@
         "node-sass": "^4.7.2",
         "npm-run-all": "^4.1.2",
         "postcss-cli": "^4.1.1",
-        "purgecss": "^0.19.0",
         "rimraf": "^2.6.2",
         "webpack": "^3.10.0"
     },
