@@ -22,11 +22,11 @@
     <meta name='author' content='<%= DEVELOPER_NAME %>. <%= DEVELOPER_URL %>'>
 
     <!-- favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="<%= PP %>apple-touch-icon.png">
-    <link rel="icon" type="image<%= PP %>png" sizes="32x32" href="<%= PP %>favicon-32x32.png">
-    <link rel="icon" type="image<%= PP %>png" sizes="16x16" href="<%= PP %>favicon-16x16.png">
-    <link rel="manifest" href="<%= PP %>manifest.json">
-    <link rel="mask-icon" href="<%= PP %>safari-pinned-tab.svg" color="#2b5797">
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= PP %>/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= PP %>/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= PP %>/favicon-16x16.png">
+    <link rel="manifest" href="<%= PP %>/manifest.json">
+    <link rel="mask-icon" href="<%= PP %>/safari-pinned-tab.svg" color="#2b5797">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Disable tap highlight on IE -->
@@ -38,17 +38,17 @@
     <![endif]-->
 
 <% if(filenameMap) { %>
-    <link rel="stylesheet" href="<%= PP %>css/<%= filenameMap['index.css'] %>">
-    <link rel="preload" href="<%= PP %>js/<%= filenameMap['vendor.js'] %>" as="script">
-    <link rel="prefetch" href="<%= PP %>js/<%= filenameMap['vendor.js'] %>">
-    <link rel="preload" href="<%= PP %>js/<%= filenameMap['bundle.js'] %>" as="script">
-    <link rel="prefetch" href="<%= PP %>js/<%= filenameMap['bundle.js'] %>">
+    <link rel="stylesheet" href="<%= PP %>/css/<%= filenameMap['index.css'] %>">
+    <link rel="preload" href="<%= PP %>/js/<%= filenameMap['vendor.js'] %>" as="script">
+    <link rel="prefetch" href="<%= PP %>/js/<%= filenameMap['vendor.js'] %>">
+    <link rel="preload" href="<%= PP %>/js/<%= filenameMap['bundle.js'] %>" as="script">
+    <link rel="prefetch" href="<%= PP %>/js/<%= filenameMap['bundle.js'] %>">
 <% } else { %>
-    <link rel="stylesheet" href="<%= PP %>css/index.css">
-    <link rel="preload" href="<%= PP %>js/vendor.js" as="script">
-    <link rel="prefetch" href="<%= PP %>js/vendor.js">
-    <link rel="preload" href="<%= PP %>js/bundle.js" as="script">
-    <link rel="prefetch" href="<%= PP %>js/bundle.js">
+    <link rel="stylesheet" href="<%= PP %>/css/index.css">
+    <link rel="preload" href="<%= PP %>/js/vendor.js" as="script">
+    <link rel="prefetch" href="<%= PP %>/js/vendor.js">
+    <link rel="preload" href="<%= PP %>/js/bundle.js" as="script">
+    <link rel="prefetch" href="<%= PP %>/js/bundle.js">
 <% } %>
 
     <script async src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

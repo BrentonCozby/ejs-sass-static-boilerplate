@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import fs from 'fs'
 
 import transformFiles from './transform-files'
-import { Dir } from '../config'
+import { Dir } from '../globals'
 
 function setEncoding(filename) {
     let encoding = 'utf-8'

@@ -1,5 +1,5 @@
 const path = require('path')
-const config = require('./config')
+const globals = require('./globals')
 const webpack = require('webpack')
 
 let isProduction
@@ -10,18 +10,15 @@ module.exports = (env = {}) => {
 
     return {
         entry: {
-            vendor: ['lodash.throttle', 'sanitize-html'],
+            vendor: ['lodash.throttle', 'sanitize-html', 'picturefill', 'lazysizes'],
             bundle: ['./src/js/index.js'],
         },
         output: {
             filename: 'js/[name].js',
             path: path.resolve(__dirname, 'dist'),
-            publicPath: config.PP,
+            publicPath: globals.PP,
         },
         module: {
-            parser: {
-                system: true
-            },
             rules: [
                 {
                     test: /\.js$/,
@@ -33,20 +30,23 @@ module.exports = (env = {}) => {
                                 'stage-0',
                             ]
                         }
-                    }]
+                    }],
+                    parser: {
+                        system: true
+                    }
                 }
             ]
         },
         plugins: [
             new webpack.DefinePlugin({
-                NODE_ENV: isProduction ? 'production' : 'development',
-                PP: '',
-                SITE_TITLE: config.SITE_TITLE,
-                DESCRIPTION: config.DESCRIPTION,
-                SITE_URL: config.SITE_URL,
-                DEVELOPER_NAME: config.DEVELOPER_NAME,
-                DEVELOPER_URL: config.DEVELOPER_URL,
-                GOOGLE_ANALYTICS_ID: config.GOOGLE_ANALYTICS_ID
+                NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development'),
+                PP: JSON.stringify(''),
+                SITE_TITLE: JSON.stringify(globals.SITE_TITLE),
+                DESCRIPTION: JSON.stringify(globals.DESCRIPTION),
+                SITE_URL: JSON.stringify(globals.SITE_URL),
+                DEVELOPER_NAME: JSON.stringify(globals.DEVELOPER_NAME),
+                DEVELOPER_URL: JSON.stringify(globals.DEVELOPER_URL),
+                GOOGLE_ANALYTICS_ID: JSON.stringify(globals.GOOGLE_ANALYTICS_ID)
             })
         ],
         optimization: {
@@ -62,17 +62,17 @@ module.exports = (env = {}) => {
         },
         resolve: {
             alias: {
-                dist: config.Dir.dist,
-                src: config.Dir.src,
-                css: config.Dir.css,
-                js: config.Dir.js,
-                static: config.Dir.static,
-                images: config.Dir.images,
-                videos: config.Dir.images,
-                vendor: config.Dir.vendor,
-                views: config.Dir.views,
-                pages: config.Dir.pages,
-                partials: config.Dir.partials,
+                dist: globals.Dir.dist,
+                src: globals.Dir.src,
+                css: globals.Dir.css,
+                js: globals.Dir.js,
+                static: globals.Dir.static,
+                images: globals.Dir.images,
+                videos: globals.Dir.images,
+                vendor: globals.Dir.vendor,
+                views: globals.Dir.views,
+                pages: globals.Dir.pages,
+                partials: globals.Dir.partials,
             },
         },
         devtool: isProduction ? '' : 'source-map',

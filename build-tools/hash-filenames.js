@@ -3,7 +3,7 @@
 import fs from 'fs'
 import crypto from 'crypto'
 import { resolve } from 'path'
-import { Dir } from '../config'
+import { Dir } from '../globals'
 import transformFiles from './transform-files'
 
 const dirs = [

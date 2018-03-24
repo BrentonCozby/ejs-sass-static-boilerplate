@@ -1,11 +1,11 @@
 <script defer src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 
 <% if(filenameMap) { %>
-<script defer src="<%= PP %>js/<%= filenameMap['vendor.js'] %>"></script>
-<script defer src="<%= PP %>js/<%= filenameMap['bundle.js'] %>"></script>
+<script defer src="<%= PP %>/js/<%= filenameMap['vendor.js'] %>"></script>
+<script defer src="<%= PP %>/js/<%= filenameMap['bundle.js'] %>"></script>
 <% } else { %>
-<script defer src="<%= PP %>js/vendor.js"></script>
-<script defer src="<%= PP %>js/bundle.js"></script>
+<script defer src="<%= PP %>/js/vendor.js"></script>
+<script defer src="<%= PP %>/js/bundle.js"></script>
 <% } %>
 
 <% if(GOOGLE_ANALYTICS_ID) { %>

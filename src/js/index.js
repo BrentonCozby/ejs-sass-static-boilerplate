@@ -1,9 +1,9 @@
 /** Variables available in all js files:
- * all the exported constants from config.js
+ * all the exported constants from globals.js
 */
 
 /** Directories available as aliases
- * all the paths within Dir in config.js
+ * all the paths within Dir in globals.js
 */
 
 import sanitizeHTML from 'sanitize-html'

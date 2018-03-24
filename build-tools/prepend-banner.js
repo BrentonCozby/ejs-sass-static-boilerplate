@@ -10,7 +10,7 @@ import {
     DEVELOPER_NAME,
     DEVELOPER_URL,
     Dir,
-} from '../config'
+} from '../globals'
 
 function transformer({ filename, sourcePath }) {
     const filePath = resolve(sourcePath, filename)

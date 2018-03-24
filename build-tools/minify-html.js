@@ -3,7 +3,7 @@ import fs from 'fs'
 import { resolve } from 'path'
 import { minify } from 'html-minifier' // eslint-disable-line import/no-extraneous-dependencies
 
-import { Dir } from '../config'
+import { Dir } from '../globals'
 import transformFiles from './transform-files'
 
 transformFiles(resolve(Dir.dist), {}, ({ filename, sourcePath, destinationPath }) => {

@@ -1,10 +1,9 @@
 const { resolve } = require('path')
 
-// Use the following variables in src/views. They are made available in
-// build-tools/ejs-to-html.js in the 'transformer' function
+// Use the following variables in src/views and src/js. They are made available in
+// build-tools/ejs-to-html.js in the 'transformer' function and in webpcak.config.js
 
-// PP (public path) must begin and end with '/' unless it is just '/'
-module.exports.PP = '/'
+module.exports.PP = ''
 module.exports.DEV_PATH = __dirname
 module.exports.SITE_TITLE = 'Static Boilerplate EJS-SASS'
 module.exports.SITE_NAME = 'ejs-sass-static-boilerplate'
