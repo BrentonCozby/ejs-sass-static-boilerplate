@@ -6,9 +6,8 @@ import { resolve } from 'path'
 import { Dir } from '../globals'
 import transformFiles from './transform-files'
 
-const dirs = [
-    resolve(Dir.dist, 'js'),
-    resolve(Dir.dist, 'css'),
+const dirsToHash = [
+    resolve(Dir.dist, 'css')
 ]
 
 const mapData = {}
@@ -20,7 +19,7 @@ function transformer({ filename, sourcePath, destinationPath }) {
 
     const hash = crypto.createHash('md5').update(fileContents).digest('hex')
 
-    if (filename.indexOf(hash) !== -1) {
+    if (filename.indexOf(hash) >= 0) {
         console.log(`${filename} is unchanged.`)
 
         const str = filename.split('.')
@@ -55,9 +54,32 @@ function hashFilenames(directories) {
         transformFiles(dir, {}, transformer)
     })
 
+    console.log('\nFilenames hashed!\n')
+
+    // add the javascript files (hashed by webpack)
+    transformFiles(resolve(Dir.dist, 'js'), {}, ({ filename }) => {
+        if (!filename.includes('app') && !filename.includes('vendor')) {
+            return
+        }
+
+        const noHash = filename.split('.').reduce((acc, curr, index) => {
+            if (index > 0 && ['js', 'map'].indexOf(curr) === -1) {
+                return acc
+            }
+
+            acc.push(curr)
+
+            return acc
+        }, [])
+
+        const baseFilename = noHash.join('.')
+
+        mapData[baseFilename] = filename
+    })
+
     fs.writeFileSync(resolve(Dir.dist, 'filename-map.json'), JSON.stringify(mapData), 'utf-8')
 
-    console.log('\nFilenames hashed!\n')
+    console.log('Hashed filenames map created.\n')
 }
 
-hashFilenames(dirs)
+hashFilenames(dirsToHash)

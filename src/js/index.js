@@ -15,7 +15,7 @@ import './utils/errors'
 import './utils/scroll-animations'
 
 // eslint-disable-next-line no-console
-console.log(`NODE_ENV: ${NODE_ENV}`)
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
 setInterval(() => {
     if ($('#time')) {
@@ -30,5 +30,11 @@ if (mainForm) {
         e.preventDefault()
 
         $('#submitted-message').innerHTML = `<b>Sanitized Message</b>: ${sanitizeHTML(mainForm.message.value)}`
+
+        import(/* webpackChunkName: "lazyModule" */ './lazyModule.js').then(module => {
+            const foo = module.default
+
+            foo()
+        })
     })
 }

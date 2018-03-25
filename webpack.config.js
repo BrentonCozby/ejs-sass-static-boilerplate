@@ -11,12 +11,13 @@ module.exports = (env = {}) => {
     return {
         entry: {
             vendor: ['lodash.throttle', 'sanitize-html', 'picturefill', 'lazysizes'],
-            bundle: ['./src/js/index.js'],
+            app: ['./src/js/index.js'],
         },
         output: {
-            filename: 'js/[name].js',
-            path: path.resolve(__dirname, 'dist'),
-            publicPath: globals.PP,
+            filename: isProduction ? '[name].[chunkhash].js' : '[name].js',
+            chunkFilename: isProduction ? '[name].[chunkhash].js' : '[name].js',
+            path: path.resolve(__dirname, 'dist', 'js'),
+            publicPath: `${globals.PP}/js/`
         },
         module: {
             rules: [
@@ -39,7 +40,6 @@ module.exports = (env = {}) => {
         },
         plugins: [
             new webpack.DefinePlugin({
-                NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development'),
                 PP: JSON.stringify(''),
                 SITE_TITLE: JSON.stringify(globals.SITE_TITLE),
                 DESCRIPTION: JSON.stringify(globals.DESCRIPTION),
@@ -75,6 +75,6 @@ module.exports = (env = {}) => {
                 partials: globals.Dir.partials,
             },
         },
-        devtool: isProduction ? '' : 'source-map',
+        devtool: isProduction ? '' : 'source-map'
     }
 }
