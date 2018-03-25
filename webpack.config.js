@@ -74,6 +74,7 @@ module.exports = (env = {}) => {
                 pages: globals.Dir.pages,
                 partials: globals.Dir.partials,
             },
+            symlinks: false
         },
         devtool: isProduction ? '' : 'source-map'
     }
