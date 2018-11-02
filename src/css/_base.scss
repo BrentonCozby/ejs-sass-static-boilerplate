@@ -1,4 +1,6 @@
 $main-font: "Helvetica Neue", "Calibri Light", "Roboto", sans-serif;
+$appear-transition-opacity: 300ms;
+$appear-transition-transform: 10000ms;
 
 * {
     box-sizing: border-box;
@@ -33,6 +35,5 @@ h1, h2, h3, h4, h5, h6 {
 
 .lazyloaded {
     opacity: 1;
-    // this transition needs to match the transition in @mixin appear in _helpers.scss
-    transition: opacity 300ms, transform 10000ms;
+    transition: opacity $appear-transition-opacity, transform $appear-transition-transform;
 }

@@ -10,7 +10,7 @@ module.exports = (env = {}) => {
 
     return {
         entry: {
-            vendor: ['lodash.throttle', 'sanitize-html', 'picturefill', 'lazysizes'],
+            vendor: ['lodash.throttle', 'lodash.debounce', 'sanitize-html', 'picturefill', 'lazysizes'],
             app: ['./src/js/index.js'],
         },
         output: {
@@ -27,8 +27,7 @@ module.exports = (env = {}) => {
                         loader: 'babel-loader',
                         options: {
                             presets: [
-                                ['env', { modules: false }],
-                                'stage-0',
+                                ['@babel/env', { modules: false }],
                             ]
                         }
                     }],
@@ -66,6 +65,7 @@ module.exports = (env = {}) => {
                 src: globals.Dir.src,
                 css: globals.Dir.css,
                 js: globals.Dir.js,
+                utils: globals.Dir.utils,
                 static: globals.Dir.static,
                 images: globals.Dir.images,
                 videos: globals.Dir.images,
@@ -76,6 +76,6 @@ module.exports = (env = {}) => {
             },
             symlinks: false
         },
-        devtool: isProduction ? '' : 'source-map'
+        devtool: isProduction ? '' : 'eval'
     }
 }

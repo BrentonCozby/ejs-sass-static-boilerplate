@@ -18,6 +18,7 @@ module.exports.Dir = {
     src: resolve(__dirname, 'src'),
     css: resolve(__dirname, 'src', 'css'),
     js: resolve(__dirname, 'src', 'js'),
+    utils: resolve(__dirname, 'src', 'js', 'utils'),
     static: resolve(__dirname, 'src', 'static'),
     favicons: resolve(__dirname, 'src', 'favicons'),
     images: resolve(__dirname, 'src', 'static', 'images'),

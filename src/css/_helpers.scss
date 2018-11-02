@@ -53,6 +53,8 @@
     padding-bottom: 1px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: -1px;
+    margin-bottom: -1px;
     margin-left: auto;
     margin-right: auto;
 
@@ -68,13 +70,13 @@
 
 .text-content {
     padding: 1px 0;
-    margin: 0 auto;
+    margin: -1px auto;
     max-width: 700px;
 }
 
 @mixin appear($offset, $speed) {
     opacity: 0;
-    transition: opacity 300ms, transform 10000ms;
+    transition: opacity $appear-transition-opacity, transform $appear-transition-transform;
     transform: translateY($offset);
     transition-timing-function: ease-out;
 

@@ -7,12 +7,21 @@ import { Dir } from '../globals'
 import transformFiles from './transform-files'
 
 const dirsToHash = [
+    resolve(Dir.dist, 'js'),
     resolve(Dir.dist, 'css')
+]
+
+const patternsToSkip = [
+    /\.lazy\./
 ]
 
 const mapData = {}
 
 function transformer({ filename, sourcePath, destinationPath }) {
+    if (patternsToSkip.some(pattern => pattern.test(filename))) {
+        return
+    }
+
     const oldFilePath = resolve(sourcePath, filename)
 
     const fileContents = fs.readFileSync(oldFilePath, 'utf-8')
@@ -54,32 +63,30 @@ function hashFilenames(directories) {
         transformFiles(dir, {}, transformer)
     })
 
-    console.log('\nFilenames hashed!\n')
-
     // add the javascript files (hashed by webpack)
-    transformFiles(resolve(Dir.dist, 'js'), {}, ({ filename }) => {
-        if (!filename.includes('app') && !filename.includes('vendor')) {
-            return
-        }
+    // transformFiles(resolve(Dir.dist, 'js'), {}, ({ filename }) => {
+    //     if (!filename.includes('app') && !filename.includes('vendor')) {
+    //         return
+    //     }
 
-        const noHash = filename.split('.').reduce((acc, curr, index) => {
-            if (index > 0 && ['js', 'map'].indexOf(curr) === -1) {
-                return acc
-            }
+    //     const noHash = filename.split('.').reduce((acc, curr, index) => {
+    //         if (index > 0 && ['js', 'map'].indexOf(curr) === -1) {
+    //             return acc
+    //         }
 
-            acc.push(curr)
+    //         acc.push(curr)
 
-            return acc
-        }, [])
+    //         return acc
+    //     }, [])
 
-        const baseFilename = noHash.join('.')
+    //     const baseFilename = noHash.join('.')
 
-        mapData[baseFilename] = filename
-    })
+    //     mapData[baseFilename] = filename
+    // })
 
     fs.writeFileSync(resolve(Dir.dist, 'filename-map.json'), JSON.stringify(mapData), 'utf-8')
 
-    console.log('Hashed filenames map created.\n')
+    console.log('\nFilenames hashed! filename-map.json created.\n')
 }
 
 hashFilenames(dirsToHash)

@@ -10,14 +10,14 @@ import sanitizeHTML from 'sanitize-html'
 
 import 'picturefill'
 import 'lazysizes'
-import './utils/helpers'
-import './utils/errors'
-import './utils/scroll-animations'
+import 'utils/helpers'
+import 'utils/errors'
+import 'utils/scroll-animations'
 
 // eslint-disable-next-line no-console
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
-setInterval(() => {
+const clock = setInterval(() => {
     if ($('#time')) {
         $('#time').innerHTML = ` - <b>${(new Date()).toLocaleTimeString()}</b>`
     }
@@ -31,7 +31,7 @@ if (mainForm) {
 
         $('#submitted-message').innerHTML = `<b>Sanitized Message</b>: ${sanitizeHTML(mainForm.message.value)}`
 
-        import(/* webpackChunkName: "lazyModule" */ './lazyModule.js').then(module => {
+        import(/* webpackChunkName: "lazy-module.lazy" */ './lazy-module').then(module => {
             const foo = module.default
 
             foo()
