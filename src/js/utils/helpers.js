@@ -1,9 +1,9 @@
 /* bling.js - https://gist.github.com/paulirish/12fb951a8b893a454b32 */
 
-window.$ = (selector) => {
+window.$ = selector => {
     const query = document.querySelectorAll(selector)
 
-    return (query.length <= 1) ? query[0] : query
+    return query.length <= 1 ? query[0] : query
 }
 
 function singleNodeAddEventListener(name, fn) {
@@ -21,13 +21,13 @@ Node.prototype.off = singleNodeRemoveEventListener
 window.off = singleNodeRemoveEventListener
 
 function multipleNodesAddEventListener(name, fn) {
-    this.forEach((elem) => {
+    this.forEach(elem => {
         elem.on(name, fn)
     })
 }
 
 function multipleNodesRemoveEventListener(name, fn) {
-    this.forEach((elem) => {
+    this.forEach(elem => {
         elem.off(name, fn)
     })
 }

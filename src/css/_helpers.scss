@@ -4,7 +4,7 @@
     left: 0;
     min-height: 0;
     width: 100vw;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     z-index: -100;
 
@@ -19,8 +19,8 @@
     display: none !important;
 }
 
- // Hide only visually, but have it available for screen readers:
- // http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+// Hide only visually, but have it available for screen readers:
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 .visually-hidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -43,10 +43,9 @@
 }
 
 // Hide visually and from screen readers, but maintain layout
- .invisible {
+.invisible {
     visibility: hidden;
 }
-
 
 .container {
     padding-top: 1px;

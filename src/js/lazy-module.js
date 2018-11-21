@@ -1,7 +1,7 @@
-console.log('This file was lazyLoaded.');
+console.log('This file was lazyLoaded.')
 
-export default function () {
-    console.log('foo, bitch.');
+export default function() {
+    console.log('foo, bitch.')
 }
 
 setTimeout(() => {

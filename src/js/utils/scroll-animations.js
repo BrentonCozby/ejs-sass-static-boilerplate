@@ -3,17 +3,15 @@ import throttle from 'lodash.throttle'
 
 // Add selectors here and they will all have the class 'scroll-visible'
 // added to them when they scroll into view
-const selectors = [
-    document.querySelectorAll('.appear'),
-]
+const selectors = [document.querySelectorAll('.appear')]
 
 let animElements = []
 let windowHeight = null
 let lastWindowScrollY = 0
 let offset = 150
 
-const supportPageOffset = (window.pageXOffset !== undefined)
-const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat')
+const supportPageOffset = window.pageXOffset !== undefined
+const isCSS1Compat = (document.compatMode || '') === 'CSS1Compat'
 
 const getWindowScrollY = () => {
     if (supportPageOffset) {
@@ -28,9 +26,9 @@ const getWindowScrollY = () => {
 function getPositions() {
     animElements = []
 
-    selectors.forEach((selector) => {
+    selectors.forEach(selector => {
         if (selector) {
-            selector.forEach((element) => {
+            selector.forEach(element => {
                 animElements.push({
                     element,
                     position: element.getBoundingClientRect().top + getWindowScrollY(),
@@ -41,7 +39,7 @@ function getPositions() {
 }
 
 function playAnimations() {
-    animElements.forEach((el) => {
+    animElements.forEach(el => {
         const triggerPoint = Number(el.position) + Number(-windowHeight) + Number(offset)
 
         if (lastWindowScrollY > triggerPoint) {
@@ -74,13 +72,23 @@ ready(() => {
 
     setInterval(showItemsInView, 2000)
 
-    document.on('resize', debounce(() => {
-        showItemsInView()
-    }, 100))
+    document.on(
+        'resize',
+        debounce(() => {
+            showItemsInView()
+        }, 100)
+    )
 
-    document.on('scroll', throttle(() => {
-        lastWindowScrollY = getWindowScrollY()
+    document.on(
+        'scroll',
+        throttle(
+            () => {
+                lastWindowScrollY = getWindowScrollY()
 
-        playAnimations()
-    }, 100, { leading: true }))
+                playAnimations()
+            },
+            100,
+            { leading: true }
+        )
+    )
 })

@@ -1,4 +1,4 @@
-$main-font: "Helvetica Neue", "Calibri Light", "Roboto", sans-serif;
+$main-font: 'Helvetica Neue', 'Calibri Light', 'Roboto', sans-serif;
 $appear-transition-opacity: 300ms;
 $appear-transition-transform: 10000ms;
 
@@ -7,13 +7,20 @@ $appear-transition-transform: 10000ms;
     position: relative;
 }
 
-html, p, a, li, span, button, input, textarea {
+html,
+p,
+a,
+li,
+span,
+button,
+input,
+textarea {
     font-family: $main-font;
     color: #666;
     line-height: 1.6;
     font-size: 18px;
     font-weight: 300;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
 }
 
 html,
@@ -22,7 +29,12 @@ body {
     width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: #444;
     line-height: 1.2;
     font-weight: normal;

@@ -1,7 +1,7 @@
 @media print {
     // Page Breaks
     a {
-        page-break-inside: avoid
+        page-break-inside: avoid;
     }
 
     blockquote {
@@ -15,7 +15,7 @@
     h5,
     h6 {
         page-break-after: avoid;
-        page-break-inside: avoid
+        page-break-inside: avoid;
     }
 
     img {
@@ -25,13 +25,13 @@
 
     table,
     pre {
-        page-break-inside: avoid
+        page-break-inside: avoid;
     }
 
     ul,
     ol,
     dl {
-        page-break-before: avoid
+        page-break-before: avoid;
     }
 
     a:link,
@@ -46,24 +46,24 @@
 
     // Links
     a {
-        page-break-inside: avoid
+        page-break-inside: avoid;
     }
 
-    a[href^=http]:after {
-        content: " &lt; " attr(href) "&gt; ";
+    a[href^='http']:after {
+        content: ' &lt; ' attr(href) '&gt; ';
     }
 
-    $a:after &gt;
+    $a: after &gt;
     img {
-        content: "";
+        content: '';
     }
 
-    article a[href^="#"]:after {
-        content: "";
+    article a[href^='#']:after {
+        content: '';
     }
 
     a:not(:local-link):after {
-        content: " &lt; " attr(href) "&gt; ";
+        content: ' &lt; ' attr(href) '&gt; ';
     }
 
     // Making intergated videos disappear, and removing the iframes' whitespace to zero.
@@ -83,5 +83,4 @@
         height: 0;
         overflow: hidden;
     }
-
 }

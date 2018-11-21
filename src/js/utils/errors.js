@@ -1,10 +1,30 @@
 // Avoid `console` errors in browsers that lack a console.
 let method
 const methods = [
-    'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-    'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-    'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-    'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn',
+    'assert',
+    'clear',
+    'count',
+    'debug',
+    'dir',
+    'dirxml',
+    'error',
+    'exception',
+    'group',
+    'groupCollapsed',
+    'groupEnd',
+    'info',
+    'log',
+    'markTimeline',
+    'profile',
+    'profileEnd',
+    'table',
+    'time',
+    'timeEnd',
+    'timeline',
+    'timelineEnd',
+    'timeStamp',
+    'trace',
+    'warn',
 ]
 let { length } = methods
 const console = window.console || {}

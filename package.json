@@ -23,7 +23,7 @@
         "hash-filenames": "babel-node build-tools/hash-filenames.js",
         "prepend-banner": "babel-node build-tools/prepend-banner.js",
         "rmprod": "rimraf filename-map.json && rimraf dist",
-        "eslint": "eslint"
+        "prettier": "prettier --write 'src/**/*.{js,css,scss,json,html}'"
     },
     "author": "Brenton Cozby",
     "license": "MIT",
@@ -34,18 +34,15 @@
         "@babel/plugin-syntax-dynamic-import": "^7.0.0",
         "@babel/preset-env": "^7.1.0",
         "autoprefixer": "^7.2.3",
-        "babel-eslint": "^10.0.1",
         "babel-loader": "^8.0.4",
         "browser-sync": "^2.21.0",
         "clean-css": "^4.1.9",
         "ejs": "^2.5.7",
-        "eslint": "^4.14.0",
-        "eslint-config-airbnb-base": "^12.1.0",
-        "eslint-plugin-import": "^2.8.0",
         "html-minifier": "^3.5.8",
         "node-sass": "^4.7.2",
         "npm-run-all": "^4.1.2",
         "postcss-cli": "^4.1.1",
+        "prettier": "^1.15.2",
         "rimraf": "^2.6.2",
         "webpack": "^4.24.0",
         "webpack-cli": "^3.1.2"

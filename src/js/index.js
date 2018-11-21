@@ -1,10 +1,10 @@
 /** Variables available in all js files:
  * all the exported constants from globals.js
-*/
+ */
 
 /** Directories available as aliases
  * all the paths within Dir in globals.js
-*/
+ */
 
 import sanitizeHTML from 'sanitize-html'
 
@@ -19,14 +19,14 @@ console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
 const clock = setInterval(() => {
     if ($('#time')) {
-        $('#time').innerHTML = ` - <b>${(new Date()).toLocaleTimeString()}</b>`
+        $('#time').innerHTML = ` - <b>${new Date().toLocaleTimeString()}</b>`
     }
 }, 1000)
 
 const mainForm = $('#main-form')
 
 if (mainForm) {
-    mainForm.on('submit', (e) => {
+    mainForm.on('submit', e => {
         e.preventDefault()
 
         $('#submitted-message').innerHTML = `<b>Sanitized Message</b>: ${sanitizeHTML(mainForm.message.value)}`

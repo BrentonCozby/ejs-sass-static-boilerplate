@@ -1,5 +1,5 @@
-console.log('this is bar.js');
+console.log('this is bar.js')
 
-export default function () {
+export default function() {
     console.log('bar logging function')
 }
