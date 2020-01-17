@@ -15,7 +15,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
     * Everything in this folder will be copied (with folder/file structure maintained) into the dist folder unchanged
     * If there is an `images/pineapple.jpg` file in `src/static`, you would reference this in any of your *.ejs files (`src/views`) like this:
         ```html
-            <img src="<%= PP %>images/pineapple.jpg">
+            <img src="<%= PP %>/images/pineapple.jpg">
         ```
 * The main JS file is `src/js/index.js`. This will become `app.js`
 * A separate `vendor.js` bundle will be created from node_modules added to the "vendor" array in webpack.config.js
