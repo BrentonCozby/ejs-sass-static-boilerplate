@@ -48,6 +48,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 * A polyfills file from Polyfill.io file that only loads if the client doesn't have certain features
 * CSS helpers, including classes for "show/hide on scroll" behavior, "split-box" classes for grid behavior, and more in `_helpers.scss`
 * `print.scss` for common css fixes when printing a web page
+* Prettier instead of EsLint - `npm run prettier`; /prettier.config.js
 
 **Included Libraries:**
 * *Sanitize.css* - common CSS resets. The evolution of Normalize.css
