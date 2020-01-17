@@ -49,6 +49,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 * CSS helpers, including classes for "show/hide on scroll" behavior, "split-box" classes for grid behavior, and more in `_helpers.scss`
 * `print.scss` for common css fixes when printing a web page
 * Prettier instead of EsLint - `npm run prettier`; /prettier.config.js
+* Lazy loading! check out /src/js/lazy-module.js for an example
 
 **Included Libraries:**
 * *Sanitize.css* - common CSS resets. The evolution of Normalize.css

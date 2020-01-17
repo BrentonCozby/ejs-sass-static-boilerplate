@@ -65,7 +65,8 @@
         "Webpack",
         "Boilerplate",
         "Static",
-        "NodeJS"
+        "NodeJS",
+        "lazy loading"
     ],
     "bugs": {
         "url": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate/issues"
