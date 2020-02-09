@@ -1,12 +1,13 @@
 module.exports = {
-    tabWidth: 4,
+    printWidth: 120,
+    tabWidth: 2,
+    useTabs: false,
     semi: false,
     singleQuote: true,
-    printWidth: 120,
-    trailingComma: 'es5',
-    bracketSpacing: true,
+    trailingComma: 'all',
+    bracketSpacing: false,
     jsxBracketSameLine: false,
-    arrowParens: 'avoid',
+    proseWrap: 'always',
     overrides: [
         {
             files: '.prettierrc',
