@@ -11,4 +11,4 @@
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3, Webpack, Pug, jQuery, Babel
+    HTML5, CSS3, Webpack, EJS, Babel

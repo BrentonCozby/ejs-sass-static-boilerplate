@@ -6,10 +6,9 @@
  * all the paths within Dir in globals.js
  */
 
-import sanitizeHTML from 'sanitize-html'
+import dompurify from 'dompurify'
 
 import 'picturefill'
-import 'lazysizes'
 import 'utils/helpers'
 import 'utils/errors'
 import 'utils/scroll-animations'
@@ -29,7 +28,7 @@ if (mainForm) {
     mainForm.on('submit', e => {
         e.preventDefault()
 
-        $('#submitted-message').innerHTML = `<b>Sanitized Message</b>: ${sanitizeHTML(mainForm.message.value)}`
+        $('#submitted-message').innerHTML = `<b>Sanitized Message</b>: ${dompurify.sanitize(mainForm.message.value)}`
 
         import(/* webpackChunkName: "lazy-module.lazy" */ './lazy-module').then(module => {
             const foo = module.default

@@ -10,18 +10,18 @@ span,
 button,
 input,
 textarea {
-    font-family: $main-font;
-    color: #666;
-    line-height: 1.6;
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+  font-family: $main-font;
+  color: #666;
+  line-height: 1.6;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 html,
 body {
-    min-height: 100%;
-    width: 100%;
+  min-height: 100%;
+  width: 100%;
 }
 
 h1,
@@ -30,17 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #444;
-    line-height: 1.2;
-    font-weight: normal;
-}
-
-.lazyload,
-.lazyloading {
-    opacity: 0;
-}
-
-.lazyloaded {
-    opacity: 1;
-    transition: opacity $appear-transition-opacity, transform $appear-transition-transform;
+  color: #444;
+  line-height: 1.2;
+  font-weight: normal;
 }

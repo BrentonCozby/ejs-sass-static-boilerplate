@@ -1,17 +1,18 @@
-<script defer src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+<script src="https://cdn.polyfill.io/v3/polyfill.min.js"></script>
 
 <% if(filenameMap) { %>
-<script defer src="<%= PP %>/js/<%= filenameMap['vendor.js'] %>"></script>
-<script defer src="<%= PP %>/js/<%= filenameMap['app.js'] %>"></script>
+<script src="<%= PP %>/js/<%= filenameMap['vendor.js'] %>"></script>
+<script src="<%= PP %>/js/<%= filenameMap['app.js'] %>"></script>
 <% } else { %>
-<script defer src="<%= PP %>/js/vendor.js"></script>
-<script defer src="<%= PP %>/js/app.js"></script>
+<script src="<%= PP %>/js/vendor.js"></script>
+<script src="<%= PP %>/js/app.js"></script>
 <% } %>
 
 <% if(GOOGLE_ANALYTICS_ID) { %>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
-    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-    ga('create','<%= GOOGLE_ANALYTICS_ID %>','auto');ga('send','pageview')
+  window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+  ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
 </script>
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
 <% } %>

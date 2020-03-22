@@ -1,13 +1,13 @@
 console.log('This file was lazyLoaded.')
 
-export default function() {
-    console.log('foo, bitch.')
+export default function () {
+  console.log('foo.')
 }
 
 setTimeout(() => {
-    import(/* webpackChunkName: "bar.lazy" */ './foo/bar/bar').then(module => {
-        const bar = module.default
+  import( /* webpackChunkName: "bar.lazy" */ './foo/bar/bar').then(module => {
+    const bar = module.default
 
-        bar()
-    })
+    bar()
+  })
 }, 2000)

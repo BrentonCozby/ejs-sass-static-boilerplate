@@ -26,7 +26,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 
 ## DEVELOPMENT
 
-```yarn dev``` (to prepare files, start server, and watch files)
+```npm run dev``` (to prepare files, start server, and watch files)
 
 **Development Features:**
 * CSS updates without browser reload; browser auto-reloads upon JS and HTML updates
@@ -34,7 +34,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 
 ## PRODUCTION
 
-```yarn build```
+```npm run build```
 
 **Production Features:**
 * Minification for CSS (with Autoprefixer), JS (with Babel), and HTML files
@@ -54,8 +54,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 **Included Libraries:**
 * *Sanitize.css* - common CSS resets. The evolution of Normalize.css
 * *Font Awesome* - I mainly use it for icons
-* *bling.js* - the 1% of jQuery you use 99% of the time)
-* *sanitize-html* - should use this on any user-inputted data)
-* *lodash.throttle* - already used in the CSS helper classes that show/hide an element on-scroll)
-* *include-media* - so you can do things in `sass` like `@include media('>=358px', '<850px') { }`
+* *bling.js* - the 1% of jQuery you use 99% of the time
+* *dompurify* - should use this on any user-inputted data
+* *lodash.throttle* - already used in the CSS helper classes that show/hide an element on-scroll
 * *HTML5Boilerplate* - includes presets in html & css for web best practices, and includes a .htaccess file
