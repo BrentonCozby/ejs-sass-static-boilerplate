@@ -68,14 +68,9 @@ const args = process.argv
 for (let i = 0; i < args.length; i += 1) {
   if (args[i] === '--watch') {
     // watch the entire views folder, including pages and partials
-    console.log('fooooo', Dir.views);
-    
-    
     watch(Dir.views, {
       recursive: true
     }, () => {
-      console.log('fooo');
-      
       transformFiles({
         sourcePath: Dir.pages,
         options: {destination: Dir.dist},
