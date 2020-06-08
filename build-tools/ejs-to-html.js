@@ -2,6 +2,7 @@
 
 import {resolve} from 'path'
 import fs from 'fs'
+import watch from 'node-watch'
 import ejs from 'ejs' // eslint-disable-line import/no-extraneous-dependencies
 
 import {
@@ -67,9 +68,14 @@ const args = process.argv
 for (let i = 0; i < args.length; i += 1) {
   if (args[i] === '--watch') {
     // watch the entire views folder, including pages and partials
-    fs.watch(Dir.views, {
+    console.log('fooooo', Dir.views);
+    
+    
+    watch(Dir.views, {
       recursive: true
     }, () => {
+      console.log('fooo');
+      
       transformFiles({
         sourcePath: Dir.pages,
         options: {destination: Dir.dist},
