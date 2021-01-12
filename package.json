@@ -49,15 +49,13 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "dompurify": "^2.0.8",
+    "dompurify": "^2.2.6",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "picturefill": "^3.0.3"
   },
   "browserslist": [
-    "last 1 version",
-    "> 1%",
-    "IE 10"
+    "> 1%"
   ],
   "repository": {
     "type": "git",
